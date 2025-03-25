@@ -1,0 +1,61 @@
+﻿/* Общие сбросы и фон */
+body {
+    margin: 0;
+    padding: 0;
+    /* Шрифт с засечками */
+    font-family: 'Georgia', serif;
+    /* Тёмный фон */
+    background-color: #2d2d2d;
+    color: white;
+}
+
+/* Центровка контента */
+.invitation {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
+    min-height: 100vh;
+    text-align: center;
+}
+
+/* Заголовок над инициалами */
+.subtitle {
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+/* Инициалы */
+.monogram {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+.monogram span {
+    margin: 0 10px;
+    font-weight: normal;
+}
+
+/* Фото */
+.cover-photo {
+    width: 300px;
+    max-width: 90vw;
+    /* Белая рамка */
+    border: 4px solid white;
+    /* Плавное увеличение */
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+.cover-link:hover .cover-photo {
+    transform: scale(1.03);
+}
+
+/* Подпись под фото */
+.hint-text {
+    font-size: 1rem;
+    margin-top: 20px;
+    opacity: 0.8;
+}
