@@ -1,0 +1,96 @@
+﻿body {
+    position: relative;
+}
+
+/* Секцию позиционируем поверх других */
+.hero {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.8s ease;
+    z-index: 10; /* <-- важно */
+}
+
+/* Когда секция становится видимой */
+.hero.visible {
+    opacity: 1;
+    pointer-events: all;
+}
+
+/* Фоновая фотография */
+.hero-photo {
+    /* Занимает всё пространство */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+
+    /* Абсолютное позиционирование — под текстом */
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    /* Исходное состояние: немного уменьшена */
+    transform: scale(0.95);
+
+    /* Плавное масштабирование */
+    transition: transform 1s ease, opacity 0.8s ease;
+
+    /* Небольшая тень */
+    box-shadow: 0 0 80px rgba(0, 0, 0, 0.3);
+}
+
+/* При показе секции — увеличиваем фото */
+.hero.visible .hero-photo {
+    transform: scale(1);
+}
+
+/* Контейнер для текста */
+.hero-text {
+    /* Ставим текст над фото */
+    position: relative;
+    z-index: 1;
+
+    /* Центрируем и двигаем вниз */
+    text-align: center;
+    color: white;
+    padding-top: 30vh;
+
+    /* Исходное состояние: прозрачный и чуть ниже */
+    opacity: 0;
+    transform: translateY(20px);
+
+    /* Плавный переход */
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+/* При показе — текст проявляется и поднимается */
+.hero.visible .hero-text {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Мелкий подзаголовок */
+.hero-subtitle {
+    letter-spacing: 2px;
+    font-size: 1rem;
+    margin-bottom: 0.5em;
+}
+
+/* Имена */
+.hero-names {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 1em;
+}
+
+/* Подсказка "листайте ниже" */
+.hero-hint {
+    font-size: 0.9rem;
+    opacity: 0.8;
+}

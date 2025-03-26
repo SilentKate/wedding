@@ -1,0 +1,32 @@
+﻿/* Основной шрифт */
+body {
+    font-family: 'Georgia', serif;
+    line-height: 1.6;
+}
+
+/* Заголовок страницы */
+.subtitle {
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+/* Инициалы */
+.text-decorative-large {
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+/* Вертикальная палочка между инициалами */
+.text-decorative-large span {
+    margin: 0 10px;
+    font-weight: normal;
+}
+
+/* Текст под фото */
+.text-caption {
+    font-size: 1rem;
+    opacity: 0.8;
+    margin-top: 20px;
+}

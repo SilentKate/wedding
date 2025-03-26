@@ -11,6 +11,9 @@
     <title>Приглашение на свадьбу</title>
 
     <!-- Подключаем файл со стилями -->
+    <link rel="stylesheet" href="effects.css">
+    <link rel="stylesheet" href="hero.css">
+    <link rel="stylesheet" href="typography.css">
     <link rel="stylesheet" href="style.css">
     
 </head>
@@ -21,19 +24,39 @@
     <h1 class="subtitle">ПРИГЛАШЕНИЕ НА СВАДЬБУ</h1>
 
     <!-- Инициалы пары с вертикальной чертой посередине -->
-    <div class="monogram">KS<span>|</span>SK</div>
+    <div class="text-decorative-large">KS<span>|</span>SK</div>
 
-        <!-- Обёртка-ссылка вокруг фото. Позже можно сделать якорь или ссылку на внутреннюю часть -->
-    <a href="#full-invite" class="cover-link">
-        <!-- Фото пары. Нужно положить в папку images/ -->
-        <img src="images/cover.jpg" alt="Наша свадьба" class="cover-photo">
+    <!-- Обёртка-ссылка вокруг фото. Позже можно сделать якорь или ссылку на внутреннюю часть -->
+    <a href="#full-invite" class="cover-link" id="coverLink">
+        <div class="cover-frame scale-on-hover">
+            <img src="images/cover.jpg" alt="Наша свадьба" class="cover-photo">
+        </div>
     </a>
-
-    <p class="hint-text">
+    
+    <p class="text-caption">
         Нажмите на фото, чтобы<br>открыть приглашение
     <!-- Подпись под фото с переносом строки -->
     </p>
 
 </main>
+
+<!-- Hero-секция — вынесена отдельно -->
+<section id="hero" class="hero hidden">
+    <img src="images/cover.jpg" alt="Наша свадьба" class="hero-photo">
+    <div class="hero-text">
+        <p class="hero-subtitle">WEDDING DAY</p>
+        <h1 class="hero-names">KS & SK</h1>
+        <p class="hero-hint">ЛИСТАЙТЕ НИЖЕ</p>
+    </div>
+</section>
+
+<!-- Основное приглашение — тоже отдельно -->
+<section id="full-invite" class="hidden">
+    <h2 class="text-heading-small">Дорогие гости</h2>
+    <p class="text-caption">Мы с радостью приглашаем вас отпраздновать с нами наш день!</p>
+</section>
+
+<!-- Подключаем скрипт -->
+<script src="script.js"></script>
 </body>
 </html>

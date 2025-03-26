@@ -29,32 +29,57 @@ body {
 }
 
 /* Инициалы */
-.monogram {
+.text-decorative-large {
     font-size: 3rem;
     font-weight: bold;
     margin-bottom: 30px;
 }
-.monogram span {
+.text-decorative-large span {
     margin: 0 10px;
     font-weight: normal;
 }
 
-/* Фото */
-.cover-photo {
+/* Контейнер с рамкой вокруг фото */
+.cover-frame {
+    /* Устанавливаем фиксированный размер */
     width: 300px;
     max-width: 90vw;
+
     /* Белая рамка */
     border: 4px solid white;
-    /* Плавное увеличение */
-    transition: transform 0.3s ease;
-    cursor: pointer;
+
+    /* Прячем всё, что выходит за рамку */
+    overflow: hidden;
+
+    /* Поддерживаем пропорции */
+    aspect-ratio: 3 / 4;
+
+    /* Центрируем вложенное изображение */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* Для красивого перехода */
+    transition: border-color 0.3s ease;
 }
+
+/* Само изображение */
+.cover-photo {
+    /* Делаем его немного больше, чем рамка, чтобы при scale не появлялись пустоты */
+    width: 100%;
+    height: auto;
+
+    /* Плавная анимация при увеличении */
+    transition: transform 0.3s ease;
+}
+
+/* При наведении на ссылку — увеличивается только картинка */
 .cover-link:hover .cover-photo {
-    transform: scale(1.03);
+    transform: scale(1.05);
 }
 
 /* Подпись под фото */
-.hint-text {
+.text-caption {
     font-size: 1rem;
     margin-top: 20px;
     opacity: 0.8;
