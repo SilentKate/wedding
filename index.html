@@ -13,6 +13,7 @@
     <!-- Подключаем файл со стилями -->
     <link rel="stylesheet" href="styles/common.css">
     <link rel="stylesheet" href="styles/intro.css">
+    <link rel="stylesheet" href="styles/full-invite.css">
     
 </head>
 <body>
@@ -22,7 +23,7 @@
     <h1 class="subtitle">ПРИГЛАШЕНИЕ НА СВАДЬБУ</h1>
 
     <!-- Инициалы пары с вертикальной чертой посередине -->
-    <div class="text-decorative-large">KS<span>|</span>SK</div>
+    <div class="text-decorative-large">К<span>|</span>Е</div>
 
     <!-- Обёртка-ссылка вокруг фото. Позже можно сделать якорь или ссылку на внутреннюю часть -->
     <a href="#full-invite" class="cover-link" id="coverLink">
@@ -43,18 +44,26 @@
     <img src="images/intro/cover.jpg" alt="Наша свадьба" class="intro-photo">
     <div class="intro-text">
         <p class="intro-subtitle">WEDDING DAY</p>
-        <h1 class="intro-names">KS & SK</h1>
+        <h1 class="intro-names">Кирилл & Екатерина</h1>
+        <div class="scroll-indicator">
+            <div class="scroll-track"></div>
+            <div class="scroll-line"></div>
+        </div>
         <p class="intro-hint">ЛИСТАЙТЕ НИЖЕ</p>
     </div>
 </section>
 
 <!-- Основное приглашение — тоже отдельно -->
 <section id="full-invite" class="hidden">
-    <h2 class="text-heading-small">Дорогие гости</h2>
-    <p class="text-caption">Мы с радостью приглашаем вас отпраздновать с нами наш день!</p>
+    <div class="save-the-date">
+        <p class="save-the-date__subtitle">Мы будем счастливы разделить<br>с вами радость события</p>
+        <h2 class="save-the-date__date">18 АВГУСТА 2025</h2>
+        <p class="save-the-date__note">По случаю нашей свадьбы</p>
+    </div>
 </section>
 
 <!-- Подключаем скрипт -->
 <script src="script.js"></script>
+<audio id="introAudio" src="audio/Intro.mp3" preload="auto"></audio>
 </body>
 </html>

@@ -1,0 +1,38 @@
+﻿#full-invite {
+    background-color: white;
+    color: #1a1a1a; /* тёмно-серый для текста */
+    padding: 80px 20px;
+    text-align: center;
+}
+
+/* Блок с датой */
+.save-the-date {
+    max-width: 640px;
+    margin: 0 auto 60px;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.save-the-date__subtitle {
+    font-size: 1rem;
+    opacity: 0.9;
+    margin-bottom: 20px;
+    line-height: 1.6;
+    font-family: Georgia, serif;
+}
+
+.save-the-date__date {
+    font-size: 2.2rem;
+    font-weight: normal;
+    letter-spacing: 0.5px;
+    margin: 10px 0;
+    font-family: Georgia, serif;
+    text-transform: uppercase;
+}
+
+.save-the-date__note {
+    font-size: 1rem;
+    opacity: 0.8;
+    margin-top: 10px;
+    font-family: Georgia, serif;
+}

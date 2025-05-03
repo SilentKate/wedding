@@ -1,31 +1,60 @@
-﻿const coverLink = document.getElementById('coverLink');
-const introSection = document.getElementById('intro');
-const fullInviteSection = document.getElementById('full-invite');
-const invitationSection = document.querySelector('.invitation'); // <main class="invitation">
+﻿let coverLink, introSection, fullInviteSection, invitationSection, music;
 
-if (coverLink && introSection && fullInviteSection && invitationSection) {
-    coverLink.addEventListener('click', (event) => {
-        event.preventDefault();
+document.addEventListener('DOMContentLoaded', onDOMContentLoaded);
+    
+function onDOMContentLoaded(){
+    coverLink = document.getElementById('coverLink');
+    introSection = document.getElementById('intro');
+    fullInviteSection = document.getElementById('full-invite');
+    invitationSection = document.querySelector('.invitation');
+    music = document.getElementById('introAudio');
 
-        // 1. Добавляем fade-out к .invitation
-        invitationSection.classList.add('fade-out');
 
-        // 2. Через 500мс скрываем полностью
+    if (coverLink && introSection && fullInviteSection && invitationSection) {
+        coverLink.addEventListener('click', handleCoverClick);
+    }
+
+    if (music) {
+        document.addEventListener('visibilitychange', handleVisibilityChange);
+    }
+}
+
+function handleCoverClick(event) {
+    event.preventDefault();
+
+    invitationSection.classList.add('fade-out');
+
+    setTimeout(() => {
+        invitationSection.classList.add('hidden');
+        invitationSection.style.display = 'none';
+
+        introSection.classList.remove('hidden');
         setTimeout(() => {
-            invitationSection.classList.add('hidden');
+            introSection.classList.add('visible');
 
-            // Показываем hero с анимацией
-            introSection.classList.remove('hidden');
-            introSection.classList.remove('hidden');
+            // Убираем абсолютное позиционирование
+            introSection.style.position = 'relative';
+            introSection.style.zIndex = 'auto';
+        }, 50);
+    }, 500);
 
-            setTimeout(() => {
-                introSection.classList.add('visible');
-            }, 50);
-        }, 500);
+    setTimeout(() => {
+        fullInviteSection.classList.remove('hidden');
+        fullInviteSection.classList.add('visible');
+    }, 1300);
 
-        // 3. Показываем следующий блок позже
-        setTimeout(() => {
-            fullInviteSection.classList.remove('hidden');
-        }, 1300);
-    });
+    if (music) {
+        music.volume = 0.5;
+        music.play().catch(e => {
+            console.warn("Автовоспроизведение не разрешено:", e);
+        });
+    }
+}
+
+function handleVisibilityChange() {
+    if (document.hidden) {
+        music.pause();
+    } else {
+        music.play().catch(() => {});
+    }
 }
