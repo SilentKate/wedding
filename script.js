@@ -1,4 +1,4 @@
-﻿let coverLink, introSection, fullInviteSection, invitationSection, music;
+﻿let coverLink, introSection, fullInviteSection, invitationSection, backgrooundAudio;
 
 document.addEventListener('DOMContentLoaded', onDOMContentLoaded);
     
@@ -7,7 +7,7 @@ function onDOMContentLoaded(){
     introSection = document.getElementById('intro');
     fullInviteSection = document.getElementById('full-invite');
     invitationSection = document.querySelector('.invitation');
-    music = document.getElementById('introAudio');
+    backgrooundAudio = document.getElementById('introAudio');
     
     resetToInitialState();
 
@@ -15,7 +15,7 @@ function onDOMContentLoaded(){
         coverLink.addEventListener('click', handleCoverClick);
     }
 
-    if (music) {
+    if (backgrooundAudio) {
         document.addEventListener('visibilitychange', handleVisibilityChange);
     }
 }
@@ -23,6 +23,12 @@ function onDOMContentLoaded(){
 function handleCoverClick(event) {
     event.preventDefault();
 
+    playBackgroundAudio();
+    animateCover();
+    setTimeout(animateFullInvite, 1300);
+}
+
+function animateCover() {
     const img = document.querySelector('.cover-photo');
     const rect = img.getBoundingClientRect();
 
@@ -67,7 +73,6 @@ function handleCoverClick(event) {
     introSection.style.position = 'absolute';
     introSection.style.zIndex = '10';
 
-    // Через 800 мс — показываем intro и убираем клон
     setTimeout(() => {
         introSection.classList.add('visible');
         document.body.classList.add('allow-scroll');
@@ -79,21 +84,23 @@ function handleCoverClick(event) {
         invitationSection.style.display = 'none';
 
         clone.style.opacity = '0';
-        setTimeout(() => clone.remove(), 300);
-    }, 800);
+        setTimeout(() => clone.remove(), 100);
+    }, 600);
+}
 
-    setTimeout(() => {
-        fullInviteSection.classList.remove('hidden');
-        fullInviteSection.classList.add('visible');
-        const introBackground = document.getElementById('introBackground');
-        if (introBackground) {
-            introBackground.classList.add('hidden');
-        }
-    }, 1300);
+function animateFullInvite() {
+    const introBackground = document.getElementById('introBackground');
+    if (introBackground) {
+        introBackground.classList.add('hidden');
+    }
+    fullInviteSection.classList.remove('hidden');
+    fullInviteSection.classList.add('visible');
+}
 
-    if (music) {
-        music.volume = 0.5;
-        music.play().catch(e => {
+function playBackgroundAudio() {
+    if (backgrooundAudio) {
+        backgrooundAudio.volume = 0.5;
+        backgrooundAudio.play().catch(e => {
             console.warn("Автовоспроизведение не разрешено:", e);
         });
     }
@@ -101,9 +108,9 @@ function handleCoverClick(event) {
 
 function handleVisibilityChange() {
     if (document.hidden) {
-        music.pause();
+        backgrooundAudio.pause();
     } else {
-        music.play().catch(() => {});
+        backgrooundAudio.play().catch(() => {});
     }
 }
 
