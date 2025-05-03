@@ -8,7 +8,8 @@ function onDOMContentLoaded(){
     fullInviteSection = document.getElementById('full-invite');
     invitationSection = document.querySelector('.invitation');
     music = document.getElementById('introAudio');
-
+    
+    resetToInitialState();
 
     if (coverLink && introSection && fullInviteSection && invitationSection) {
         coverLink.addEventListener('click', handleCoverClick);
@@ -35,6 +36,8 @@ function handleCoverClick(event) {
             // Убираем абсолютное позиционирование
             introSection.style.position = 'relative';
             introSection.style.zIndex = 'auto';
+
+            document.body.classList.add('allow-scroll');
         }, 50);
     }, 500);
 
@@ -57,4 +60,29 @@ function handleVisibilityChange() {
     } else {
         music.play().catch(() => {});
     }
+}
+
+function resetToInitialState() {
+    document.body.classList.remove('allow-scroll');
+
+    if (introSection) {
+        introSection.classList.remove('visible');
+        introSection.classList.add('hidden');
+        introSection.style.position = 'absolute';
+        introSection.style.zIndex = '10';
+    }
+
+    if (fullInviteSection) {
+        fullInviteSection.classList.remove('visible');
+        fullInviteSection.classList.add('hidden');
+    }
+
+    if (invitationSection) {
+        invitationSection.classList.remove('fade-out');
+        invitationSection.classList.remove('hidden');
+        invitationSection.style.display = ''; // ← чтобы снова стало видно
+    }
+
+    // сбросить scroll
+    window.scrollTo(0, 0);
 }

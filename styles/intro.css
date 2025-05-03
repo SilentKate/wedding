@@ -3,6 +3,10 @@
     background-color: white;
 }
 
+body.allow-scroll {
+    overflow: auto;
+}
+
 /* Секцию позиционируем поверх других */
 .intro {
     position: absolute;
