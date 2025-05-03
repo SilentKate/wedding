@@ -27,26 +27,33 @@ body.allow-scroll {
     pointer-events: all;
 }
 
+.intro-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #2d2d2d;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.intro-background.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
 /* Фоновая фотография */
 .intro-photo {
-    /* Занимает всё пространство */
     width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: center;
-
-    /* Абсолютное позиционирование — под текстом */
     position: absolute;
     top: 0;
     left: 0;
-
-    /* Исходное состояние: немного уменьшена */
     transform: scale(0.95);
-
-    /* Плавное масштабирование */
     transition: transform 1s ease, opacity 0.8s ease;
-
-    /* Небольшая тень */
     box-shadow: 0 0 80px rgba(0, 0, 0, 0.3);
 }
 
@@ -56,8 +63,6 @@ body.allow-scroll {
     z-index: 1;
     text-align: center;
     color: white;
-
-    /* Вместо padding-top: 30vh — используем flex-контейнер */
     display: flex;
     flex-direction: column;
     align-items: center;

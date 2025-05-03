@@ -44,6 +44,10 @@ function handleCoverClick(event) {
     setTimeout(() => {
         fullInviteSection.classList.remove('hidden');
         fullInviteSection.classList.add('visible');
+        const introBackground = document.getElementById('introBackground');
+        if (introBackground) {
+            introBackground.classList.add('hidden');
+        }
     }, 1300);
 
     if (music) {
