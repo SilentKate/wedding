@@ -1,5 +1,6 @@
 ﻿body {
     position: relative;
+    background-color: white;
 }
 
 /* Секцию позиционируем поверх других */
@@ -9,11 +10,11 @@
     left: 0;
     width: 100%;
     height: 100vh;
-
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.8s ease;
-    z-index: 10; /* <-- важно */
+    z-index: 10;
+    background-color: #2d2d2d;
 }
 
 /* Когда секция становится видимой */
@@ -45,11 +46,6 @@
     box-shadow: 0 0 80px rgba(0, 0, 0, 0.3);
 }
 
-/* При показе секции — увеличиваем фото */
-.intro.visible .intro-photo {
-    transform: scale(1);
-}
-
 /* Контейнер для текста */
 .intro-text {
     position: relative;
@@ -71,6 +67,10 @@
     transition: opacity 1s ease, transform 1s ease;
 }
 
+/* При показе секции — увеличиваем фото */
+.intro.visible .intro-photo {
+    transform: scale(1);
+}
 
 /* При показе — текст проявляется и поднимается */
 .intro.visible .intro-text {
