@@ -11,20 +11,22 @@ function onDOMContentLoaded(){
     coverLink = document.getElementById('coverLink');
     
     resetToInitialState();
+    updateVh();
 
+    window.addEventListener('resize', updateVh);
     coverLink.addEventListener('click', handleCoverClick);
     document.addEventListener('visibilitychange', handleVisibilityChange);
 }
 
 function handleCoverClick(event) {
     event.preventDefault();
-
     playBackgroundAudio();
-    animateCover();
-    setTimeout(animateFullInvite, 1000);
+    animateCover(400);
+    setTimeout(animateFullInvite, 600);
+    setTimeout(() => {document.body.classList.add('allow-scroll');}, 1200);
 }
 
-function animateCover() {
+function animateCover(timeout) {
     const img = document.querySelector('.cover-photo');
     const rect = img.getBoundingClientRect();
 
@@ -63,13 +65,10 @@ function animateCover() {
     // fade-out для рамки
     main.classList.add('fade-out');
 
-    // Подготавливаем intro
-    introSection.classList.remove('hidden');
-    introSection.style.position = 'absolute';
-    introSection.style.zIndex = '10';
-
     setTimeout(() => {
+        introSection.classList.remove('hidden');
         introSection.classList.add('visible');
+        console.log(introSection.classList);
         introSection.style.position = 'relative';
         introSection.style.zIndex = 'auto';
 
@@ -79,13 +78,12 @@ function animateCover() {
         clone.style.opacity = '0';
         const introBackground = document.getElementById('introBackground');
         introBackground.classList.add('hidden');
-    }, 600);
+    }, timeout);
 }
 
 function animateFullInvite() {
     fullInviteSection.classList.remove('hidden');
     fullInviteSection.classList.add('visible');
-    document.body.classList.add('allow-scroll');
 }
 
 function playBackgroundAudio() {
@@ -144,4 +142,13 @@ function resetToInitialState() {
 
     // Возвращаем scroll вверх
     window.scrollTo(0, 0);
+
+    window.removeEventListener('resize', updateVh);
+    coverLink.removeEventListener('click', handleCoverClick);
+    document.removeEventListener('visibilitychange', handleVisibilityChange);
+}
+
+function updateVh() {
+    const vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
 }

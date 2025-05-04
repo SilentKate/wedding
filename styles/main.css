@@ -6,12 +6,24 @@ body {
     background-color: white;
     color: white;
     line-height: 1.6;
-    height: 100%;
+    height: calc(var(--vh, 1vh) * 100);
     overflow: hidden;
 }
 
 body.allow-scroll {
     overflow: auto;
+}
+
+/* Устанавливаем переменную для высоты экрана */
+:root {
+    --vh: 1vh;
+}
+
+/* Обновляем высоту при изменении размера окна */
+@media (max-width: 768px) {
+    .main {
+        height: calc(var(--vh, 1vh) * 100);
+    }
 }
 
 /* Скрывает элемент полностью */

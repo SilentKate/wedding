@@ -7,7 +7,7 @@
     height: 100vh;
     opacity: 0;
     pointer-events: none;
-    transition: opacity 0.8s ease;
+    transition: opacity 0.6s ease;
     z-index: 10;
     background-color: #2d2d2d;
 }
@@ -21,6 +21,22 @@
 .intro.visible {
     opacity: 1;
     pointer-events: all;
+}
+
+/* При показе секции — увеличиваем фото */
+.intro.visible .intro-photo {
+    transform: scale(1);
+}
+
+/* При показе — текст проявляется и поднимается */
+.intro.visible .intro-text {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.intro.visible .intro-subtitle {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .intro-background {
@@ -49,7 +65,7 @@
     top: 0;
     left: 0;
     transform: scale(0.95);
-    transition: transform 1s ease, opacity 0.8s ease;
+    transition: transform 1s ease, opacity 0.6s ease;
     box-shadow: 0 0 80px rgba(0, 0, 0, 0.3);
 }
 
@@ -69,18 +85,7 @@
 
     opacity: 0;
     transform: translateY(20px);
-    transition: opacity 1s ease, transform 1s ease;
-}
-
-/* При показе секции — увеличиваем фото */
-.intro.visible .intro-photo {
-    transform: scale(1);
-}
-
-/* При показе — текст проявляется и поднимается */
-.intro.visible .intro-text {
-    opacity: 1;
-    transform: translateY(0);
+    transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
 /* Мелкий подзаголовок */
@@ -88,6 +93,9 @@
     letter-spacing: 2px;
     font-size: 1rem;
     margin-bottom: 0.5em;
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
 /* Имена */
