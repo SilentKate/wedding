@@ -1,13 +1,14 @@
 .place {
     background-color: white;
+    margin-top: 82px;
     padding: 100px 20px;
     text-align: center;
-    margin-top: 80px;
+    opacity: 0;
+    transition: opacity 0.8s ease;
 }
 
-.place.hidden {
-    opacity: 0;
-    pointer-events: none;
+.place.animate-in {
+    opacity: 1;
 }
 
 .place-container {

@@ -22,9 +22,6 @@
     margin: 0 auto 60px;
     padding: 0 20px;
     text-align: right;
-}
-
-.save-the-date {
     opacity: 0;
     transform: translateX(-20%);
     transition: opacity 0.8s ease, transform 0.8s ease;

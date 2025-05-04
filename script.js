@@ -17,7 +17,8 @@ function onDOMContentLoaded(){
     resetToInitialState();
     updateVh();
     
-    setupSaveTheDate();
+    setupSaveTheDateSection();
+    setupPlaceSection();
     
     coverLink.addEventListener('click', handleCoverClick);
     document.addEventListener('visibilitychange', handleVisibilityChange);
@@ -111,7 +112,7 @@ function handleVisibilityChange() {
     }
 }
 
-function setupSaveTheDate() {
+function setupSaveTheDateSection() {
     const saveTheDate = document.querySelector('.save-the-date');
     const observer = new IntersectionObserver(entries => {
         entries.forEach(entry => {
@@ -120,12 +121,21 @@ function setupSaveTheDate() {
                 observer.unobserve(entry.target);
             }
         });
-    }, {
-        threshold: 0.5
-    });
+    }, { threshold: 0.5 });
     observer.observe(saveTheDate);
 }
 
+function setupPlaceSection() {
+    const placeObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                placeSection.classList.add('animate-in');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.4 });
+    placeObserver.observe(placeSection);
+}
 
 function resetToInitialState() {
     // Убираем разрешение на скролл
