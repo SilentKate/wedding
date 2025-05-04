@@ -3,7 +3,7 @@
     color: #1a1a1a;
     padding: 80px 20px;
     text-align: center;
-    height: calc(var(--vh, 1vh) * 100);
+    height: 1vh;
 }
 
 .full-invite.hidden {
@@ -21,7 +21,7 @@
     max-width: 640px;
     margin: 0 auto 60px;
     padding: 0 20px;
-    text-align: center;
+    text-align: right;
 }
 
 .save-the-date__subtitle {
