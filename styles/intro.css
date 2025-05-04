@@ -17,6 +17,11 @@
     pointer-events: none;
 }
 
+.intro.visible {
+    opacity: 1;
+    pointer-events: none;
+}
+
 /* Когда секция становится видимой */
 .intro.visible {
     opacity: 1;

@@ -1,40 +1,26 @@
 ﻿let coverLink, introSection, fullInviteSection, main, backgroundAudio;
+let placeSection;
 
 document.addEventListener('DOMContentLoaded', onDOMContentLoaded);
 window.addEventListener('resize', updateVh);
 window.addEventListener('orientationchange', updateVh);
 updateVh();
 
-function SetupSaveTheDate() {
-    const saveTheDate = document.querySelector('.save-the-date');
-    const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                saveTheDate.classList.add('animate-in');
-                observer.unobserve(entry.target);
-            }
-        });
-    }, {
-        threshold: 0.5
-    });
-    observer.observe(saveTheDate);
-}
-
 function onDOMContentLoaded(){
     main = document.querySelector('.main');
     introSection = document.getElementById('intro');
     fullInviteSection = document.getElementById('full-invite');
     backgroundAudio = document.getElementById('introAudio');
-    
     coverLink = document.getElementById('coverLink');
+    placeSection = document.getElementById('place');
     
     resetToInitialState();
     updateVh();
-
+    
+    setupSaveTheDate();
+    
     coverLink.addEventListener('click', handleCoverClick);
     document.addEventListener('visibilitychange', handleVisibilityChange);
-
-    SetupSaveTheDate();
 }
 
 function handleCoverClick(event) {
@@ -43,6 +29,14 @@ function handleCoverClick(event) {
     animateCover(400);
     setTimeout(animateFullInvite, 600);
     setTimeout(() => {document.body.classList.add('allow-scroll');}, 1200);
+}
+
+function animateFullInvite() {
+    fullInviteSection.classList.remove('hidden');
+    fullInviteSection.classList.add('visible');
+
+    placeSection.classList.remove('hidden');
+    placeSection.classList.add('visible');
 }
 
 function animateCover(timeout) {
@@ -100,11 +94,6 @@ function animateCover(timeout) {
     }, timeout);
 }
 
-function animateFullInvite() {
-    fullInviteSection.classList.remove('hidden');
-    fullInviteSection.classList.add('visible');
-}
-
 function playBackgroundAudio() {
     if (backgroundAudio) {
         backgroundAudio.volume = 0.5;
@@ -122,6 +111,22 @@ function handleVisibilityChange() {
     }
 }
 
+function setupSaveTheDate() {
+    const saveTheDate = document.querySelector('.save-the-date');
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                saveTheDate.classList.add('animate-in');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.5
+    });
+    observer.observe(saveTheDate);
+}
+
+
 function resetToInitialState() {
     // Убираем разрешение на скролл
     document.body.classList.remove('allow-scroll');
@@ -138,6 +143,11 @@ function resetToInitialState() {
     if (fullInviteSection) {
         fullInviteSection.classList.remove('visible');
         fullInviteSection.classList.add('hidden');
+    }
+    
+    if (placeSection)    {
+        placeSection.classList.remove('visible');
+        placeSection.classList.add('hidden');
     }
 
     // Показываем стартовую секцию

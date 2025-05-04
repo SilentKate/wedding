@@ -1,0 +1,76 @@
+.place {
+    background-color: white;
+    padding: 100px 20px;
+    text-align: center;
+    margin-top: 80px;
+}
+
+.place.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.place-container {
+    background-color: #2d2d2d;
+    color: white;
+    padding: 80px 30px;
+    border-radius: 500px / 500px; /* ← больше радиус, более вытянутая форма */
+    max-width: 380px;
+    margin: 0 auto;
+    position: relative;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    min-height: 320px;
+}
+
+.place-title {
+    font-size: 2rem;
+    margin-bottom: 40px;
+    font-family: Georgia, serif;
+    letter-spacing: 2px;
+}
+
+.place-block {
+    margin-bottom: 40px;
+}
+
+.place-name {
+    font-size: 1.1rem;
+    font-weight: normal;
+    margin-bottom: 5px;
+}
+
+.place-logo {
+    max-width: 200px;
+    height: auto;
+    margin-bottom: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.place-address {
+    font-size: 1rem;
+    opacity: 0.9;
+    margin-bottom: 20px;
+}
+
+.place-button {
+    display: inline-block;
+    padding: 12px 28px;
+    margin-top: 10px;
+    border: 2px solid white;
+    border-radius: 40px;
+    color: white;
+    background: transparent;
+    text-decoration: none;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    font-family: Georgia, serif;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.place-button:hover {
+    background-color: white;
+    color: #2d2d2d;
+}
+
