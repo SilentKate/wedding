@@ -21,7 +21,7 @@ function handleCoverClick(event) {
 
     playBackgroundAudio();
     animateCover();
-    setTimeout(animateFullInvite, 1300);
+    setTimeout(animateFullInvite, 1000);
 }
 
 function animateCover() {
@@ -65,14 +65,11 @@ function animateCover() {
 
     // Подготавливаем intro
     introSection.classList.remove('hidden');
-    introSection.classList.remove('visible');
     introSection.style.position = 'absolute';
     introSection.style.zIndex = '10';
 
     setTimeout(() => {
         introSection.classList.add('visible');
-        document.body.classList.add('allow-scroll');
-
         introSection.style.position = 'relative';
         introSection.style.zIndex = 'auto';
 
@@ -80,17 +77,15 @@ function animateCover() {
         main.style.display = 'none';
 
         clone.style.opacity = '0';
-        setTimeout(() => clone.remove(), 100);
+        const introBackground = document.getElementById('introBackground');
+        introBackground.classList.add('hidden');
     }, 600);
 }
 
 function animateFullInvite() {
-    const introBackground = document.getElementById('introBackground');
-    if (introBackground) {
-        introBackground.classList.add('hidden');
-    }
     fullInviteSection.classList.remove('hidden');
     fullInviteSection.classList.add('visible');
+    document.body.classList.add('allow-scroll');
 }
 
 function playBackgroundAudio() {

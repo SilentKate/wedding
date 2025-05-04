@@ -104,7 +104,7 @@
 }
 
 /* анимированный индикатор */
-.scroll-indicator {
+.vertical_scroll-indicator {
     position: relative;
     width: 2px;
     height: 40px;
@@ -113,7 +113,7 @@
 }
 
 /* Задняя полоса (направляющая) */
-.scroll-track {
+.vertical_scroll-track {
     position: absolute;
     top: 0;
     left: 50%;
@@ -124,7 +124,7 @@
 }
 
 /* Бегущая белая линия */
-.scroll-line {
+.vertical_scroll-line {
     position: absolute;
     top: 0;
     left: 50%;
