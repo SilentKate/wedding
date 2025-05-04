@@ -3,6 +3,7 @@
     color: #1a1a1a;
     padding: 80px 20px;
     text-align: center;
+    height: calc(var(--vh, 1vh) * 100);
 }
 
 .full-invite.hidden {

@@ -1,6 +1,9 @@
 ﻿let coverLink, introSection, fullInviteSection, main, backgroundAudio;
 
 document.addEventListener('DOMContentLoaded', onDOMContentLoaded);
+window.addEventListener('resize', updateVh);
+window.addEventListener('orientationchange', updateVh);
+updateVh();
     
 function onDOMContentLoaded(){
     main = document.querySelector('.main');
@@ -13,7 +16,6 @@ function onDOMContentLoaded(){
     resetToInitialState();
     updateVh();
 
-    window.addEventListener('resize', updateVh);
     coverLink.addEventListener('click', handleCoverClick);
     document.addEventListener('visibilitychange', handleVisibilityChange);
 }
@@ -143,7 +145,6 @@ function resetToInitialState() {
     // Возвращаем scroll вверх
     window.scrollTo(0, 0);
 
-    window.removeEventListener('resize', updateVh);
     coverLink.removeEventListener('click', handleCoverClick);
     document.removeEventListener('visibilitychange', handleVisibilityChange);
 }
