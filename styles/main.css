@@ -10,6 +10,10 @@ body {
     overflow: hidden;
 }
 
+body.allow-scroll {
+    overflow: auto;
+}
+
 /* Скрывает элемент полностью */
 .hidden {
     opacity: 0;
@@ -18,7 +22,7 @@ body {
 }
 
 /* Центровка контента */
-.invitation {
+.main {
     display: flex;
     flex-direction: column;
     align-items: center;

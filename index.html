@@ -19,30 +19,22 @@
 </head>
 <body>
 <!-- Главный контейнер для всей страницы -->
-<main class="invitation">
-    <!-- Заголовок над инициалами -->
+<main class="main">
     <h1 class="subtitle">ПРИГЛАШЕНИЕ НА СВАДЬБУ</h1>
-
-    <!-- Инициалы пары с вертикальной чертой посередине -->
     <div class="text-decorative-large">К<span>|</span>Е</div>
-
-    <!-- Обёртка-ссылка вокруг фото. Позже можно сделать якорь или ссылку на внутреннюю часть -->
     <a href="#full-invite" class="cover-link" id="coverLink">
         <div class="cover-frame scale-on-hover">
             <img src="images/intro/cover.jpg" class="cover-photo">
         </div>
     </a>
-    
     <p class="text-caption">
         Нажмите на фото, чтобы<br>открыть приглашение
-    <!-- Подпись под фото с переносом строки -->
     </p>
-
 </main>
 
 <div class="intro-background" id="introBackground"></div>
 
-<!-- intro-секция — вынесена отдельно -->
+<!-- intro -->
 <section id="intro" class="intro hidden">
     <img src="images/intro/cover.jpg" alt="Наша свадьба" class="intro-photo">
     <div class="intro-text">
@@ -56,8 +48,8 @@
     </div>
 </section>
 
-<!-- Основное приглашение — тоже отдельно -->
-<section id="full-invite" class="hidden">
+<!-- full-invite -->
+<section id="full-invite" class="full-invite hidden">
     <div class="save-the-date">
         <p class="save-the-date__subtitle">Мы будем счастливы разделить<br>с вами радость события</p>
         <h2 class="save-the-date__date">18 АВГУСТА 2025</h2>

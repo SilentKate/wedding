@@ -1,13 +1,4 @@
-﻿body {
-    position: relative;
-    background-color: white;
-}
-
-body.allow-scroll {
-    overflow: auto;
-}
-
-/* Секцию позиционируем поверх других */
+﻿/* Секцию позиционируем поверх других */
 .intro {
     position: absolute;
     top: 0;
@@ -19,6 +10,11 @@ body.allow-scroll {
     transition: opacity 0.8s ease;
     z-index: 10;
     background-color: #2d2d2d;
+}
+
+.intro.hidden {
+    opacity: 0;
+    pointer-events: none;
 }
 
 /* Когда секция становится видимой */

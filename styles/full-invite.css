@@ -1,8 +1,18 @@
-﻿#full-invite {
+﻿.full-invite {
     background-color: white;
     color: #1a1a1a;
     padding: 80px 20px;
     text-align: center;
+}
+
+.full-invite.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.full-invite.visible {
+    opacity: 1;
+    pointer-events: none;
 }
 
 /* Блок с датой */
