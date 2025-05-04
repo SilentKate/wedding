@@ -4,7 +4,22 @@ document.addEventListener('DOMContentLoaded', onDOMContentLoaded);
 window.addEventListener('resize', updateVh);
 window.addEventListener('orientationchange', updateVh);
 updateVh();
-    
+
+function SetupSaveTheDate() {
+    const saveTheDate = document.querySelector('.save-the-date');
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                saveTheDate.classList.add('animate-in');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.5
+    });
+    observer.observe(saveTheDate);
+}
+
 function onDOMContentLoaded(){
     main = document.querySelector('.main');
     introSection = document.getElementById('intro');
@@ -18,6 +33,8 @@ function onDOMContentLoaded(){
 
     coverLink.addEventListener('click', handleCoverClick);
     document.addEventListener('visibilitychange', handleVisibilityChange);
+
+    SetupSaveTheDate();
 }
 
 function handleCoverClick(event) {

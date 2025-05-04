@@ -24,6 +24,17 @@
     text-align: right;
 }
 
+.save-the-date {
+    opacity: 0;
+    transform: translateX(-20%);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.save-the-date.animate-in {
+    opacity: 1;
+    transform: translateX(0);
+}
+
 .save-the-date__subtitle {
     font-size: 1rem;
     opacity: 0.9;
