@@ -149,58 +149,59 @@
 </section>
 
 <!-- Дресс код -->
-<section id="dresscode" class="dresscode">
-    <div class="dc-slider">
+<section id="dresscode">
+    <!-- общий серый прямоугольник -->
+    <div class="dc-card">
 
-        <!-- Слайд 1 : Девушки -->
-        <article class="dc-slide dc-slide--girls current">
-            <header class="dc-header">
-                <h2 class="dc-big">Дресс код</h2>
-                <p class="dc-sub">Просим поддержать стилистику<br>нашего события</p>
-            </header>
+        <!-- верхняя шапка остаётся неизменной -->
+        <header class="dc-fixed">
+            <h2 class="dc-title-big">ДРЕСС КОД</h2>
+            <p class="dc-sub">Просим поддержать стилистику<br>нашего события</p>
+        </header>
 
-            <h3 class="dc-title">Женский</h3>
-            <p class="dc-text">Платья или костюмы в чёрном, серых или бежевых оттенках</p>
+        <!-- слайдер: меняем только эту часть -->
+        <div class="dc-slider">
+            <!-- Слайд 1 -->
+            <article class="dc-slide current">
+                <h3 class="dc-gender">ЖЕНСКИЙ</h3>
+                <p class="dc-text">
+                    Платья или костюмы<br>
+                    в чёрных, бежевых или серых оттенков
+                </p>
 
-            <!-- палитра -->
-            <div class="dc-palette girls">
-                <span style="--c:rgba(0,0,0,.85);"></span>
-                <span style="--c:#555;"></span>
-                <span style="--c:#bbb;"></span>
-                <span style="--c:#d8c9b5;"></span>
-                <span style="--c:#cebca7;"></span>
-                <span style="--c:#c9b29d;"></span>
-            </div>
-            <p class="dc-note">Просим белый цвет оставить невесте</p>
+                <div class="dc-palette">
+                    <span style="--c:rgba(0,0,0,.85);"></span>
+                    <span style="--c:#555;"></span>
+                    <span style="--c:#bbb;"></span>
+                    <span style="--c:#d8c9b5;"></span>
+                    <span style="--c:#cebca7;"></span>
+                    <span style="--c:#c9b29d;"></span>
+                </div>
+                <p class="dc-note">Просим оставить белый цвет для платья невесты, спасибо!</p>
+            </article>
 
-            <!-- пример изображения платья -->
-            <figure class="dc-img">
-                <!-- <img src="images/dress-girl.jpg" alt=""> -->
-            </figure>
-        </article>
+            <!-- Слайд 2 -->
+            <article class="dc-slide">
+                <h3 class="dc-gender">МУЖЧИНЫ</h3>
+                <p class="dc-text">
+                    Костюмы с пиджаком или без<br>
+                    в чёрных или серых тонах, можно с белой рубашкой
+                </p>
 
-        <!-- Слайд 2 : Мужчины -->
-        <article class="dc-slide dc-slide--men">
-            <h3 class="dc-title">Мужской</h3>
-            <p class="dc-text">Будем рады видеть вас в классических<br>костюмах чёрного и серого цвета</p>
-
-            <div class="dc-palette men">
-                <span style="--c:rgba(0,0,0,.85);"></span>
-                <span style="--c:#555;"></span>
-                <span style="--c:#666;"></span>
-                <span style="--c:#999;"></span>
-                <span style="--c:#ddd;"></span>
-                <span style="--c:#fff;"></span>
-            </div>
-            <p class="dc-note">/ BLACK & WHITE /</p>
-
-            <figure class="dc-img">
-                <!-- <img src="images/dress-man.jpg" alt=""> -->
-            </figure>
-        </article>
-
+                <div class="dc-palette">
+                    <span style="--c:rgba(0,0,0,.85);"></span>
+                    <span style="--c:#555;"></span>
+                    <span style="--c:#666;"></span>
+                    <span style="--c:#999;"></span>
+                    <span style="--c:#ddd;"></span>
+                    <span style="--c:#fff;"></span>
+                </div>
+                <p class="dc-note">Просим оставить смокинг для жениха, спасибо!</p>
+            </article>
+        </div>
     </div>
 </section>
+
 
 <!-- Подключаем скрипт -->
 <script src="script.js"></script>

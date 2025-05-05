@@ -21,7 +21,7 @@ function onDOMContentLoaded(){
     setupSaveTheDateSection();
     setupPlaceSection();
     setupProgramSection();
-    // setupCards();
+    setupCards();
     
     coverLink.addEventListener('click', handleCoverClick);
     document.addEventListener('visibilitychange', handleVisibilityChange);
@@ -175,44 +175,35 @@ function setupProgramSection() {
 
 function setupCards() {
     const slides = Array.from(document.querySelectorAll('.dc-slide'));
-    if (!slides.length) {
-        return;
-    }
+    if (!slides.length) return;
 
-    let index = 0;
-    let timer = setInterval(() => showSlide(index + 1), 6000);
+    let idx = 0;
 
-
-    /* обработка клика / свайпа */
+    let timer = setInterval(() => show(idx + 1), 10000);
+    
     const slider = document.querySelector('.dc-slider');
     let startX = 0;
 
     slider.addEventListener('mousedown', e => startX = e.clientX);
     slider.addEventListener('mouseup',   e => {
-        if (Math.abs(e.clientX - startX) > 30) {
-            showSlide(index + 1);
-            resetTimer();
-        }
+        if (Math.abs(e.clientX - startX) > 30) { show(idx + 1); reset(); }
     });
 
-    slider.addEventListener('touchstart', e => startX = e.touches[0].clientX, { passive: true });
+    slider.addEventListener('touchstart', e => startX = e.touches[0].clientX, { passive:true });
     slider.addEventListener('touchend',   e => {
-        if (Math.abs(e.changedTouches[0].clientX - startX) > 40) {
-            showSlide(index + 1);
-            resetTimer();
-        }
+        if (Math.abs(e.changedTouches[0].clientX - startX) > 40) { show(idx + 1); reset(); }
     });
 
-    function showSlide(n) {
+    function show(n) {
         slides.forEach(slide => slide.classList.remove('current', 'left'));
-        slides[index].classList.add('left');
-        index = (n + slides.length) % slides.length;
-        slides[index].classList.add('current');
+        slides[idx].classList.add('left');
+        idx = (n + slides.length) % slides.length;
+        slides[idx].classList.add('current');
     }
 
-    function resetTimer() {
+    function reset() {
         clearInterval(timer);
-        timer = setInterval(() => showSlide(index + 1), 6000);
+        timer = setInterval(() => show(idx + 1), 6000);
     }
 }
 
