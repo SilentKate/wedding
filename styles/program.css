@@ -23,7 +23,6 @@
     list-style: none;
     margin: 0 auto;
     padding: 0;
-    max-width: 760px;
 }
 
 .program-item {
@@ -86,4 +85,43 @@
 .program-item p {
     font-size: 1.4rem;
     font-family: 'Georgia', serif;
+}
+
+/* мобильный (& планшет) ≤ 768px */
+@media (max-width: 768px){
+
+    /* сама секция — чуть меньше отступ сверху, 92% ширины */
+    .program{
+        margin: 60px auto 0;
+        width: 92%;
+    }
+
+    /* переносим элемент в колонку */
+    .program-item{
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .program-line{
+        flex: 0 0 100%;
+        max-width: 120px;
+        height: 2px;
+    }
+
+    /* заголовок блока программы — поменьше */
+    .program-title{
+        font-size: 2.2rem;
+    }
+
+    /* время + заголовок пункта — меньше шрифт */
+    .program-heading,
+    .program-time{
+        font-size: 1.4rem;
+    }
+
+    /* описание — обычный текст */
+    .program-desc{
+        font-size: 0.95rem;
+        line-height: 1.3;
+    }
 }

@@ -17,12 +17,12 @@
 }
 
 .save-the-date {
-    width: 40%;
-    margin: 0 auto 60px;
+    max-width: 640px;
     text-align: right;
     opacity: 0;
     transform: translateX(-20%);
     transition: opacity 0.8s ease, transform 0.8s ease;
+    margin: 0 auto auto;
 }
 
 .save-the-date.animate-in {

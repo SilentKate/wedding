@@ -41,7 +41,6 @@
 .dc-slider {
     position: relative;
     overflow: hidden;
-    margin-top: -92px;
 }
 
 .dc-slide {
@@ -87,12 +86,28 @@
     grid-template-columns: repeat(6, 1fr);
 }
 
-.dc-palette span {
-    background-image:
-            url("../images/dresscode/dress.jpg"),
-            linear-gradient(var(--c), var(--c));
-    background-size: cover, 100% 100%;
+/* Полоска‑контейнер */
+.dc-palette span{
+    position: relative;
+    overflow: hidden;
+    background: var(--c);
     background-blend-mode: multiply;
+}
+
+/* Картинка‑текстура */
+.dc-palette span::before{
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("../images/dresscode/dress.jpg");
+    background-size: cover;
+    background-position: center;
+    transform: rotate(var(--angle, 0deg));
+    mix-blend-mode: multiply;
+}
+
+:root {
+    --angle: 0deg;
 }
 
 .dc-hint-wrap {
@@ -105,6 +120,7 @@
     font-size: 0.9rem;
     opacity: 0.8;
     margin-bottom: 6px;
+    margin-top: -80px;
 }
 
 .horizontal_scroll-indicator {

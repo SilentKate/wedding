@@ -21,7 +21,7 @@ function onDOMContentLoaded(){
     setupSaveTheDateSection();
     setupPlaceSection();
     setupProgramSection();
-    setupCards();
+    setupDresscodeSlideshow();
     
     coverLink.addEventListener('click', handleCoverClick);
     document.addEventListener('visibilitychange', handleVisibilityChange);
@@ -166,7 +166,19 @@ function setupProgramSection() {
     observer.observe(programSection);
 }
 
-function setupCards() {
+function setupDresscodeSlideshow() {
+    let spans = document.querySelectorAll('.dc-palette span');
+    for (let i = 0; i < spans.length; i++){
+        const el = spans[i];
+        let angle;
+        if (i % 2 === 0) {
+            angle = 0 + 'deg';
+        } else {
+            angle = 180 + 'deg';
+        }
+        el.style.setProperty('--angle', angle);
+    }
+
     const slides = Array.from(document.querySelectorAll('.dc-slide'));
     if (!slides.length) return;
 
