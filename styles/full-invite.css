@@ -16,11 +16,9 @@
     pointer-events: none;
 }
 
-/* Блок с датой */
 .save-the-date {
     max-width: 640px;
     margin: 0 auto 60px;
-    padding: 0 20px;
     text-align: right;
     opacity: 0;
     transform: translateX(-20%);

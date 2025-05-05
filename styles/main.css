@@ -19,13 +19,6 @@ body.allow-scroll {
     --vh: 1vh;
 }
 
-/*!* Обновляем высоту при изменении размера окна *!*/
-/*@media (max-width: 768px) {*/
-/*    .main {*/
-/*        height: calc(var(--vh, 1vh) * 100);*/
-/*    }*/
-/*}*/
-
 /* Скрывает элемент полностью */
 .hidden {
     opacity: 0;
@@ -72,13 +65,6 @@ body.allow-scroll {
     font-size: 1rem;
     opacity: 0.8;
     margin-top: 20px;
-}
-
-/* Подпись под фото */
-.text-caption {
-    font-size: 1rem;
-    margin-top: 20px;
-    opacity: 0.8;
 }
 
 /* Плавно исчезающий блок */

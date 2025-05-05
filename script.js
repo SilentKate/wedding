@@ -1,8 +1,8 @@
 ﻿let coverLink, introSection, fullInviteSection, main, backgroundAudio;
 let placeSection;
+let programSection;
 
 document.addEventListener('DOMContentLoaded', onDOMContentLoaded);
-window.addEventListener('resize', updateVh);
 window.addEventListener('orientationchange', updateVh);
 updateVh();
 
@@ -13,12 +13,14 @@ function onDOMContentLoaded(){
     backgroundAudio = document.getElementById('introAudio');
     coverLink = document.getElementById('coverLink');
     placeSection = document.getElementById('place');
+    programSection = document.getElementById('program');
     
     resetToInitialState();
     updateVh();
     
     setupSaveTheDateSection();
     setupPlaceSection();
+    setupProgramSection();
     
     coverLink.addEventListener('click', handleCoverClick);
     document.addEventListener('visibilitychange', handleVisibilityChange);
@@ -38,6 +40,9 @@ function animateFullInvite() {
 
     placeSection.classList.remove('hidden');
     placeSection.classList.add('visible');
+
+    programSection.classList.remove('hidden');
+    programSection.classList.add('visible');
 }
 
 function animateCover(timeout) {
@@ -126,22 +131,50 @@ function setupSaveTheDateSection() {
 }
 
 function setupPlaceSection() {
-    const placeObserver = new IntersectionObserver((entries, observer) => {
+    const placeObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 placeSection.classList.add('animate-in');
-                observer.unobserve(entry.target);
+                placeObserver.unobserve(entry.target);
             }
         });
     }, { threshold: 0.4 });
     placeObserver.observe(placeSection);
 }
 
+function setupProgramSection() {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                programSection.classList.add('animate-in');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
+    observer.observe(programSection);
+
+    const programItems = document.querySelectorAll('.program-item');
+    if (programItems.length) {
+        const itemObserver = new IntersectionObserver(
+            (entries, obs) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting){
+                        entry.target.style.transitionDelay = `${150}ms`;
+                        entry.target.classList.add('animate-in');
+                        obs.unobserve(entry.target);
+                    }
+                });
+            },
+            { threshold: 0.3 }
+        );
+
+        programItems.forEach(item => itemObserver.observe(item));
+    }
+}
+
 function resetToInitialState() {
-    // Убираем разрешение на скролл
     document.body.classList.remove('allow-scroll');
 
-    // Сброс интро
     if (introSection) {
         introSection.classList.remove('visible');
         introSection.classList.add('hidden');
@@ -149,7 +182,6 @@ function resetToInitialState() {
         introSection.style.zIndex = '10';
     }
 
-    // Сброс полного приглашения
     if (fullInviteSection) {
         fullInviteSection.classList.remove('visible');
         fullInviteSection.classList.add('hidden');
@@ -159,27 +191,35 @@ function resetToInitialState() {
         placeSection.classList.remove('visible');
         placeSection.classList.add('hidden');
     }
+    
+    if (programSection)    {
+        programSection.classList.remove('visible');
+        programSection.classList.add('hidden');
+    }
 
-    // Показываем стартовую секцию
+    const programItems = document.querySelectorAll('.program-item');
+    if (programItems.length) {
+        programItems.forEach(item => {
+            item.classList.remove('animate-in');
+        });
+    }
+
     if (main) {
         main.classList.remove('hidden', 'fade-out');
         main.style.display = '';
     }
 
-    // Показываем фон интро, если он есть
     const introBackground = document.getElementById('introBackground');
     if (introBackground) {
         introBackground.classList.remove('hidden');
         introBackground.style.display = '';
     }
 
-    // Удаляем клон обложки, если он остался в DOM
     const zoomedCover = document.querySelector('.cover-zooming');
     if (zoomedCover) {
         zoomedCover.remove();
     }
 
-    // Возвращаем scroll вверх
     window.scrollTo(0, 0);
 
     coverLink.removeEventListener('click', handleCoverClick);

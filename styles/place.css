@@ -1,7 +1,6 @@
 .place {
     background-color: white;
-    margin-top: 82px;
-    padding: 100px 20px;
+    margin-top: 200px;
     text-align: center;
     opacity: 0;
     transition: opacity 0.8s ease;
@@ -15,7 +14,7 @@
     background-color: #2d2d2d;
     color: white;
     padding: 80px 30px;
-    border-radius: 500px / 500px; /* ← больше радиус, более вытянутая форма */
+    border-radius: 500px / 500px;
     max-width: 380px;
     margin: 0 auto;
     position: relative;
