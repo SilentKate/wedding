@@ -1,9 +1,10 @@
 .place {
     background-color: white;
-    margin-top: 200px;
     text-align: center;
     opacity: 0;
     transition: opacity 0.8s ease;
+    width: 40%;
+    margin: 200px auto;
 }
 
 .place.animate-in {
@@ -15,7 +16,6 @@
     color: white;
     padding: 80px 30px;
     border-radius: 500px / 500px;
-    max-width: 380px;
     margin: 0 auto;
     position: relative;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
@@ -40,7 +40,7 @@
 }
 
 .place-logo {
-    max-width: 200px;
+    width: 40%;
     height: auto;
     margin-bottom: 10px;
     display: block;
