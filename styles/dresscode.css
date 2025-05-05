@@ -3,7 +3,7 @@
     display: flex;
     justify-content: center;
     margin: 80px auto;
-    width: 40%;
+    max-width: 640px;
 }
 
 /* Серый прямоугольник  */
@@ -11,10 +11,10 @@
     background: #2d2d2d;
     color: #fff;
     padding: 60px 40px 40px;
-    overflow-y: scroll;
     scrollbar-width: none;
     margin: 0 auto;
     width: 100%;
+    overflow: visible;
 }
 
 .dc-card::-webkit-scrollbar {
@@ -89,7 +89,7 @@
 
 .dc-palette span {
     background-image:
-            url("../images/dresscode/silk.jpg"),
+            url("../images/dresscode/dress.jpg"),
             linear-gradient(var(--c), var(--c));
     background-size: cover, 100% 100%;
     background-blend-mode: multiply;

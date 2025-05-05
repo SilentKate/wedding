@@ -3,8 +3,8 @@
     text-align: center;
     opacity: 0;
     transition: opacity 0.8s ease;
-    width: 40%;
     margin: 200px auto;
+    max-width: 640px;
 }
 
 .place.animate-in {
@@ -19,7 +19,8 @@
     margin: 0 auto;
     position: relative;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
-    min-height: 320px;
+    /*min-height: 320px;*/
+    max-width: 100%;
 }
 
 .place-title {
