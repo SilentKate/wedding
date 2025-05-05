@@ -21,6 +21,7 @@ function onDOMContentLoaded(){
     setupSaveTheDateSection();
     setupPlaceSection();
     setupProgramSection();
+    // setupCards();
     
     coverLink.addEventListener('click', handleCoverClick);
     document.addEventListener('visibilitychange', handleVisibilityChange);
@@ -169,6 +170,49 @@ function setupProgramSection() {
         );
 
         programItems.forEach(item => itemObserver.observe(item));
+    }
+}
+
+function setupCards() {
+    const slides = Array.from(document.querySelectorAll('.dc-slide'));
+    if (!slides.length) {
+        return;
+    }
+
+    let index = 0;
+    let timer = setInterval(() => showSlide(index + 1), 6000);
+
+
+    /* обработка клика / свайпа */
+    const slider = document.querySelector('.dc-slider');
+    let startX = 0;
+
+    slider.addEventListener('mousedown', e => startX = e.clientX);
+    slider.addEventListener('mouseup',   e => {
+        if (Math.abs(e.clientX - startX) > 30) {
+            showSlide(index + 1);
+            resetTimer();
+        }
+    });
+
+    slider.addEventListener('touchstart', e => startX = e.touches[0].clientX, { passive: true });
+    slider.addEventListener('touchend',   e => {
+        if (Math.abs(e.changedTouches[0].clientX - startX) > 40) {
+            showSlide(index + 1);
+            resetTimer();
+        }
+    });
+
+    function showSlide(n) {
+        slides.forEach(slide => slide.classList.remove('current', 'left'));
+        slides[index].classList.add('left');
+        index = (n + slides.length) % slides.length;
+        slides[index].classList.add('current');
+    }
+
+    function resetTimer() {
+        clearInterval(timer);
+        timer = setInterval(() => showSlide(index + 1), 6000);
     }
 }
 

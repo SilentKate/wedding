@@ -1,0 +1,86 @@
+.dresscode{
+    margin-top: 100px;
+    background:#fff;
+    color:#fff;          /* внутри карточек переопределяем */
+    overflow:hidden;
+    padding:0;
+}
+
+.dc-slider{
+    position:relative;
+    height:100%;
+}
+
+.dc-slide{
+    background:#2d2d2d;
+    padding:60px 30px 30px;
+    max-width:480px;
+    margin:0 auto;
+    transition:opacity .6s ease, transform .6s ease;
+    opacity:0;
+    transform:translateX(100%);
+    will-change:opacity,transform;
+}
+.dc-slide.current{
+    opacity:1;
+    transform:translateX(0);
+}
+.dc-slide.left{
+    transform:translateX(-100%);
+}
+
+.dc-header {
+    margin-bottom:40px;
+    text-align:right;
+}
+
+.dc-big {
+    font:700 2.6rem/1 Georgia,serif;
+    margin:0;
+}
+.dc-sub{ 
+    margin:8px 0 0;
+    font:1rem/1.4 Georgia,serif;
+}
+
+.dc-title{
+    font:700 2rem/1.2 Georgia,serif;
+    margin:0 0 20px;
+    color:#fff;
+}
+.dc-text,
+.dc-note{ font:1rem/1.5 Georgia,serif; margin:0 0 20px; color:#fff; }
+
+.dc-palette{
+    display:flex;
+    height:26px;
+    margin:20px 0;
+}
+
+/* палитра: grid без смещения */
+.dc-palette{
+    display:grid;
+    grid-template-columns:repeat(6,1fr);  /* столько цветов — столько колонок */
+    gap:4px;
+    height:60px;
+}
+
+/* каждая полоска */
+.dc-palette span{
+    /* слой 1: монохромная текстура шёлка */
+    background-image: url("../images/dresscode/silk.jpg"),
+    linear-gradient(var(--c), var(--c)); /* слой 2: цвет */
+
+    background-size: cover, 100% 100%;
+    background-repeat: no-repeat;
+    background-blend-mode: multiply;      /* смешиваем */
+}
+
+.dc-img{ margin:40px 0 0; }
+.dc-img img{ width:100%; height:auto; display:block; }
+
+.dc-slider::after{
+    content:'‹›';
+    position:absolute; bottom:12px; right:18px;
+    font:700 1.4rem/1 serif; color:rgba(255,255,255,.4);
+}
