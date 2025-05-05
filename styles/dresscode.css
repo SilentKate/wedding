@@ -8,7 +8,6 @@
 /* Серый прямоугольник  */
 .dc-card {
     width: 640px;
-    /*min-height: 720px;*/
     background: #2d2d2d;
     color: #fff;
     padding: 60px 40px 40px;
@@ -19,7 +18,6 @@
 .dc-card::-webkit-scrollbar {
     width: 0;
 }
-
 
 /* шапка фиксированная */
 .dc-fixed {
@@ -38,11 +36,11 @@
     font: 1rem/1.5 Georgia, serif;
 }
 
-/* ───────────── слайдер ───────────── */
 .dc-slider {
     position: relative;
-    min-height: 260px;   /* высота под контентом (чтоб не прыгало) */
+    min-height: 260px;
     overflow: hidden;
+    margin-top: -92px;
 }
 
 .dc-slide {
@@ -54,7 +52,7 @@
 }
 
 .dc-slide.current {
-    position: relative;        /* фиксирует высоту контейнера */
+    position: relative;
     transform: translateX(0);
     opacity: 1;
 }
@@ -97,3 +95,56 @@
     background-size: cover, 100% 100%;
     background-blend-mode: multiply;
 }
+
+/* Блок-подсказка */
+.dc-hint-wrap {
+    text-align: right;
+    margin-top: 100px;
+}
+
+.dc-hint {
+    font-family: Georgia, serif;
+    font-size: 0.9rem;
+    opacity: 0.8;
+    margin-bottom: 6px;
+}
+
+/* Контейнер индикатора */
+.horizontal_scroll-indicator {
+    position: relative;
+    width: 40px;
+    height: 2px;
+    margin-left: auto;
+    overflow: hidden;
+}
+
+/* Фоновая полоска */
+.horizontal_scroll-track {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Бегущая белая линия */
+.horizontal_scroll-line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 10px;
+    height: 2px;
+    background-color: white;
+    animation: scrollLineX 1.5s ease-in-out infinite;
+}
+
+/* Кадры анимации */
+@keyframes scrollLineX {
+    0%   { left: 0%;   opacity: 0; }
+    30%  { opacity: 1; }
+    50%  { left: 50%;  opacity: 1; }
+    70%  { opacity: 1; }
+    100% { left: 100%; opacity: 0; }
+}
+

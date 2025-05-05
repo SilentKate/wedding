@@ -149,28 +149,21 @@ function setupProgramSection() {
             if (entry.isIntersecting) {
                 programSection.classList.add('animate-in');
                 observer.unobserve(entry.target);
+
+                const programItems = document.querySelectorAll('.program-item');
+                if (programItems.length) {
+                    for (let i = 0; i < programItems.length; i++) {
+                        const item = programItems[i];
+                        const delay = i * 500;
+                        item.style.transitionDelay = `${delay}ms`;
+                        item.classList.remove('hidden');
+                        item.classList.add('animate-in');
+                    }
+                }
             }
         });
     }, { threshold: 0.1 });
     observer.observe(programSection);
-
-    const programItems = document.querySelectorAll('.program-item');
-    if (programItems.length) {
-        const itemObserver = new IntersectionObserver(
-            (entries, obs) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting){
-                        entry.target.style.transitionDelay = `${150}ms`;
-                        entry.target.classList.add('animate-in');
-                        obs.unobserve(entry.target);
-                    }
-                });
-            },
-            { threshold: 0.3 }
-        );
-
-        programItems.forEach(item => itemObserver.observe(item));
-    }
 }
 
 function setupCards() {
@@ -180,7 +173,6 @@ function setupCards() {
     let idx = 0;
 
     let timer = setInterval(() => show(idx + 1), 10000);
-    
     const slider = document.querySelector('.dc-slider');
     let startX = 0;
 
@@ -236,6 +228,7 @@ function resetToInitialState() {
     if (programItems.length) {
         programItems.forEach(item => {
             item.classList.remove('animate-in');
+            item.classList.add('hidden');
         });
     }
 
