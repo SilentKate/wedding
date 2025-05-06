@@ -1,11 +1,10 @@
 .program {
     color: #1a1a1a;
     background-color: white;
-    margin: 100px auto 0;
     text-align: center;
     opacity: 0;
     transition: opacity 0.8s ease;
-    max-width: 640px;
+    width: 100%;
 }
 
 .program.animate-in {
@@ -13,22 +12,17 @@
 }
 
 .program-title {
-    font-size: 3rem;
-    font-family: 'Georgia', serif;
-    line-height: 1;
     text-align: center;
 }
 
 .program-list {
     list-style: none;
-    margin: 0 auto;
     padding: 0;
 }
 
 .program-item {
     display: flex;
     gap: 40px;
-    margin-bottom: 20px;
     align-items:flex-start;
     opacity: 0;
     transform: translateX(-50px);
@@ -45,46 +39,28 @@
     flex: 0 0 160px;
     height: 1px;
     background: #000;
-    margin-top: 18px;
 }
 
 .program-content { 
     flex:1;
-    align-content: end;
+    align-content: start;
 }
 
 .program-heading{
     display: flex;
     gap: 16px;
-    font-family: 'Georgia', serif;
-    font-weight: 700;
-    font-size: 1.8rem;
-    line-height: 1.2;
-    text-transform: uppercase;
-    align-content: center;
+    text-align: start;
 }
 
 .program-time {
-    font-size: 1.8rem;
-    font-family: 'Georgia', serif;
-    margin-bottom: 8px;
-    text-transform: uppercase;
-    font-weight: 400;
 }
 
 .program-desc {
-    margin: 12px 0 0;
-    font-size: 1rem;
     opacity: 0.8;
-    font-family: 'Georgia', serif;
     text-align: left;
-    font-weight: 50;
-    line-height: 1;
 }
 
 .program-item p {
-    font-size: 1.4rem;
-    font-family: 'Georgia', serif;
 }
 
 /* мобильный (& планшет) ≤ 768px */
@@ -92,36 +68,29 @@
 
     /* сама секция — чуть меньше отступ сверху, 92% ширины */
     .program{
-        margin: 60px auto 0;
         width: 92%;
     }
 
     /* переносим элемент в колонку */
     .program-item{
         flex-direction: column;
-        gap: 16px;
     }
 
     .program-line{
-        flex: 0 0 100%;
-        max-width: 120px;
+        max-width: 20px;
         height: 2px;
     }
 
     /* заголовок блока программы — поменьше */
     .program-title{
-        font-size: 2.2rem;
     }
 
     /* время + заголовок пункта — меньше шрифт */
     .program-heading,
     .program-time{
-        font-size: 1.4rem;
     }
 
     /* описание — обычный текст */
     .program-desc{
-        font-size: 0.95rem;
-        line-height: 1.3;
     }
 }

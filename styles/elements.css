@@ -1,0 +1,63 @@
+/* Вертикальный анимированный индикатор скролла */
+.vertical_scroll-indicator {
+    position: relative;
+    overflow: hidden;
+    width: 2px;
+    height: 40px;
+}
+.vertical_scroll-track {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 2px;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.3);
+}
+.vertical_scroll-line {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 2px;
+    height: 10px;
+    background-color: white;
+    animation: scrollLineY 1.5s ease-in-out infinite;
+}
+@keyframes scrollLineY {
+    0% { top: 0%; opacity: 0; }
+    30% { opacity: 1; }
+    50% { top: 50%; opacity: 1; }
+    70% { opacity: 1; }
+    100% { top: 100%; opacity: 0; }
+}
+
+/* Горизонтальный анимированный индикатор скролла */
+.horizontal_scroll-indicator {
+    position: relative;
+    overflow: hidden;
+    width: 40px;
+    height: 2px;
+}
+.horizontal_scroll-track {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: rgba(255, 255, 255, 0.3);
+}
+.horizontal_scroll-line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 10px;
+    height: 2px;
+    background-color: white;
+    animation: scrollLineX 1.5s ease-in-out infinite;
+}
+@keyframes scrollLineX {
+    0%   { left: 0%;   opacity: 0; }
+    30%  { opacity: 1; }
+    50%  { left: 50%;  opacity: 1; }
+    70%  { opacity: 1; }
+    100% { left: 100%; opacity: 0; }
+}

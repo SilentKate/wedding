@@ -1,16 +1,18 @@
 ﻿<!DOCTYPE html>
-<!-- Указываем язык документа — русский -->
 <html lang="ru">
 <head>
-    <!-- Кодировка, чтобы работали русские буквы -->
     <meta charset="UTF-8"> 
-    <!-- Это нужно, чтобы сайт корректно отображался на телефонах -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Заголовок страницы во вкладке браузера -->
     <title>Приглашение на свадьбу</title>
 
     <!-- Подключаем файл со стилями -->
+    <link rel="stylesheet" href="styles/elements.css">
+    <link rel="stylesheet" href="styles/properties.css">
+    <link rel="stylesheet" href="styles/variables.css">
+    <link rel="stylesheet" href="styles/typography.css">
+    <link rel="stylesheet" href="styles/body.css">
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/cover.css">
     <link rel="stylesheet" href="styles/intro.css">
@@ -23,9 +25,9 @@
 <body>
 <!-- Главный контейнер для всей страницы -->
 <main class="main">
-    <h1 class="subtitle">ПРИГЛАШЕНИЕ НА СВАДЬБУ</h1>
-    <div class="text-decorative-large">К<span>|</span>Е</div>
-    <a href="#full-invite" class="cover-link" id="coverLink">
+    <p>Приглашение на свадьбу</p>
+    <div>К<span>|</span>Е</div>
+    <a href="#intro" class="cover-link" id="coverLink">
         <div class="cover-frame scale-on-hover">
             <img src="images/intro/cover.jpg" class="cover-photo">
         </div>
@@ -41,13 +43,13 @@
 <section id="intro" class="intro hidden">
     <img src="images/intro/cover.jpg" alt="Наша свадьба" class="intro-photo">
     <div class="intro-text">
-        <p class="intro-subtitle">WEDDING DAY</p>
-        <h1 class="intro-names">Кирилл & Екатерина</h1>
+        <p class="intro-subtitle">Свадебное торжество</p>
+        <p class="intro-names">Кирилл & Екатерина</p>
         <div class="vertical_scroll-indicator">
             <div class="vertical_scroll-track"></div>
             <div class="vertical_scroll-line"></div>
         </div>
-        <p class="intro-hint">ЛИСТАЙТЕ ВНИЗ</p>
+        <p class="intro-hint">Листайте вниз</p>
     </div>
 </section>
 
@@ -55,7 +57,7 @@
 <section id="full-invite" class="full-invite hidden">
     <div class="save-the-date">
         <p class="save-the-date__subtitle">Мы будем счастливы разделить<br>с вами радость события</p>
-        <h2 class="save-the-date__date">18 АВГУСТА 2025</h2>
+        <p class="save-the-date__date">18 августа 2025</p>
         <p class="save-the-date__note">По случаю нашей свадьбы</p>
     </div>
 </section>
@@ -63,20 +65,20 @@
 <!-- place -->
 <section id="place" class="place hidden">
     <div class="place-container">
-        <h2 class="place-title">ЛОКАЦИЯ</h2>
+        <p class="place-title">Локация</p>
 
         <div class="place-block">
             <p class="place-name">Кафе</p>
             <img src="images/place/place_logo.png" alt="place logo" class="place-logo">
             <p class="place-address">Москва, ул. Красная Пресня, 13</p>
-            <a class="place-button" href="https://yandex.com.tr/harita/-/CHa5rTlY" target="_blank">ПОСТРОИТЬ МАРШРУТ</a>
+            <a class="place-button" href="https://yandex.com.tr/harita/-/CHa5rTlY" target="_blank">Построить маршрут</a>
         </div>
     </div>
 </section>
 
 <!-- program -->
 <section id="program" class="program hidden">
-    <h2 class="program-title">ПОГРАММА <br>СОБЫТИЯ</h2>
+    <p class="program-title">Программа <br>события</p>
 
     <ul class="program-list">
         <li class="program-item hidden">
@@ -149,18 +151,17 @@
 </section>
 
 <!-- Дресс код -->
-<section id="dresscode">
+<section id="dresscode" class="dresscode">
     <!-- общий серый прямоугольник -->
     <div class="dc-card">
 
         <!-- верхняя шапка остаётся неизменной -->
         <header class="dc-fixed">
-            <h2 class="dc-title-big">ДРЕСС КОД</h2>
+            <p class="dc-title-big">Дресс код</p>
             <p class="dc-sub">Просим поддержать стилистику<br>нашего события</p>
             <!-- подсказка свайпа -->
             <div class="dc-hint-wrap">
-                <p class="dc-hint">ЛИСТАЙТЕ ВБОК</p>
-
+                <p class="dc-hint">Листайте вбок</p>
                 <div class="horizontal_scroll-indicator">
                     <div class="horizontal_scroll-track"></div>
                     <div class="horizontal_scroll-line"></div>
@@ -171,7 +172,7 @@
         <div class="dc-slider">
             <!-- Слайд 1 -->
             <article class="dc-slide current">
-                <h3 class="dc-gender">ЖЕНСКИЙ</h3>
+                <p class="dc-gender">Женский</p>
                 <p class="dc-text">
                     Платья или костюмы<br>
                     в чёрных, бежевых или серых оттенков
@@ -190,7 +191,7 @@
 
             <!-- Слайд 2 -->
             <article class="dc-slide">
-                <h3 class="dc-gender">МУЖСКОЙ</h3>
+                <p class="dc-gender">Мужской</p>
                 <p class="dc-text">
                     Костюмы с пиджаком или без<br>
                     в чёрных или серых тонах, можно с белой рубашкой

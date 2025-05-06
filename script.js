@@ -82,8 +82,7 @@ function animateCover(timeout) {
         clone.style.height = `${targetHeight}px`;
     });
 
-    // fade-out для рамки
-    main.classList.add('fade-out');
+    main.classList.add('hidden');
 
     setTimeout(() => {
         introSection.classList.remove('hidden');
@@ -245,7 +244,7 @@ function resetToInitialState() {
     }
 
     if (main) {
-        main.classList.remove('hidden', 'fade-out');
+        main.classList.remove('hidden');
         main.style.display = '';
     }
 
