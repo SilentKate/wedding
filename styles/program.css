@@ -1,42 +1,20 @@
 .program {
-    color: #1a1a1a;
-    background-color: white;
+    color: black;
     text-align: center;
-    opacity: 0;
-    transition: opacity 0.8s ease;
     width: 100%;
 }
 
-.program.animate-in {
-    opacity: 1;
-}
-
-.program-title {
-    text-align: center;
-}
-
 .program-list {
-    list-style: none;
-    padding: 0;
+    list-style-type: disc;
 }
 
 .program-item {
-    display: flex;
-    gap: 40px;
-    align-items:flex-start;
-    opacity: 0;
-    transform: translateX(-50px);
-    transition: opacity 0.7s ease, transform 0.7s ease;
-}
-
-.program-item.animate-in{
-    opacity: 1;
-    transform: translateX(0);
+    flex-direction: row;
+    align-items: start;
 }
 
 .program-line {
     content: '';
-    flex: 0 0 160px;
     height: 1px;
     background: #000;
 }
@@ -52,45 +30,7 @@
     text-align: start;
 }
 
-.program-time {
-}
-
 .program-desc {
     opacity: 0.8;
     text-align: left;
-}
-
-.program-item p {
-}
-
-/* мобильный (& планшет) ≤ 768px */
-@media (max-width: 768px){
-
-    /* сама секция — чуть меньше отступ сверху, 92% ширины */
-    .program{
-        width: 92%;
-    }
-
-    /* переносим элемент в колонку */
-    .program-item{
-        flex-direction: column;
-    }
-
-    .program-line{
-        max-width: 20px;
-        height: 2px;
-    }
-
-    /* заголовок блока программы — поменьше */
-    .program-title{
-    }
-
-    /* время + заголовок пункта — меньше шрифт */
-    .program-heading,
-    .program-time{
-    }
-
-    /* описание — обычный текст */
-    .program-desc{
-    }
 }

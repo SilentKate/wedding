@@ -1,31 +1,24 @@
 .place {
     background-color: white;
     text-align: center;
-    opacity: 0;
-    transition: opacity 0.8s ease;
-}
-
-.place.animate-in {
-    opacity: 1;
 }
 
 .place-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
     background-color: #2d2d2d;
     color: white;
-    padding: 80px 30px;
-    border-radius: 500px / 500px;
+    padding: 40px 0;
+    /*border-radius: 500px / 500px;*/
+    /*aspect-ratio: 2 / 1;*/
+    /*border-radius: 40%;*/
     position: relative;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    box-sizing:border-box;
     max-width: 100%;
-}
-
-.place-title {
-}
-
-.place-block {
-}
-
-.place-name {
 }
 
 .place-logo {
@@ -33,23 +26,20 @@
     height: auto;
 }
 
-.place-address {
-    opacity: 0.9;
-}
-
 .place-button {
-    display: inline-block;
-    padding: 12px 28px;
+    width: 40%;
+    padding: 16px 30px;
     border: 2px solid white;
+    box-sizing:border-box;
     border-radius: 40px;
     color: white;
     background: transparent;
-    text-decoration: none;
-    transition: background 0.3s ease, color 0.3s ease;
+    animation: border-blink 4s infinite;
+    pointer-events: auto;
 }
 
 .place-button:hover {
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.11);
     color: #2d2d2d;
 }
 

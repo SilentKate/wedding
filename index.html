@@ -16,99 +16,78 @@
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/cover.css">
     <link rel="stylesheet" href="styles/intro.css">
-    <link rel="stylesheet" href="styles/full-invite.css">
+    <link rel="stylesheet" href="styles/save-the-date.css">
     <link rel="stylesheet" href="styles/place.css">
     <link rel="stylesheet" href="styles/program.css">
     <link rel="stylesheet" href="styles/dresscode.css">
     
 </head>
 <body>
-<!-- Главный контейнер для всей страницы -->
-<main class="main">
-    <p>Приглашение на свадьбу</p>
-    <div>К<span>|</span>Е</div>
-    <a href="#intro" class="cover-link" id="coverLink">
-        <div class="cover-frame scale-on-hover">
-            <img src="images/intro/cover.jpg" class="cover-photo">
-        </div>
-    </a>
-    <p class="text-caption">
-        Нажмите на фото, чтобы<br>открыть приглашение
-    </p>
-</main>
-
-<div class="intro-background" id="introBackground"></div>
 
 <!-- intro -->
-<section id="intro" class="intro hidden">
-    <img src="images/intro/cover.jpg" alt="Наша свадьба" class="intro-photo">
-    <div class="intro-text">
-        <p class="intro-subtitle">Свадебное торжество</p>
-        <p class="intro-names">Кирилл & Екатерина</p>
-        <div class="vertical_scroll-indicator">
-            <div class="vertical_scroll-track"></div>
-            <div class="vertical_scroll-line"></div>
+<main class="main">
+    <div class="intro">
+        <img src="images/intro/cover.jpg" alt="Наша свадьба" class="intro-photo">
+        <div class="intro-text-container">
+            <p class="intro-subtitle">Свадебное торжество</p>
+            <p class="intro-names">Кирилл & Екатерина</p>
+            <div class="vertical_scroll-indicator">
+                <div class="vertical_scroll-track"></div>
+                <div class="vertical_scroll-line"></div>
+            </div>
+            <p class="hint">Листайте вниз</p>
         </div>
-        <p class="intro-hint">Листайте вниз</p>
     </div>
-</section>
+</main>
 
-<!-- full-invite -->
-<section id="full-invite" class="full-invite hidden">
-    <div class="save-the-date">
+<!-- save-the-date -->
+<section id="save-the-date" class="save-the-date">
         <p class="save-the-date__subtitle">Мы будем счастливы разделить<br>с вами радость события</p>
         <p class="save-the-date__date">18 августа 2025</p>
         <p class="save-the-date__note">По случаю нашей свадьбы</p>
-    </div>
 </section>
 
 <!-- place -->
-<section id="place" class="place hidden">
+<section id="place" class="place">
     <div class="place-container">
         <p class="place-title">Локация</p>
-
-        <div class="place-block">
-            <p class="place-name">Кафе</p>
-            <img src="images/place/place_logo.png" alt="place logo" class="place-logo">
-            <p class="place-address">Москва, ул. Красная Пресня, 13</p>
-            <a class="place-button" href="https://yandex.com.tr/harita/-/CHa5rTlY" target="_blank">Построить маршрут</a>
-        </div>
+        <p class="place-name">Кафе</p>
+        <img src="images/place/place_logo.png" alt="place logo" class="place-logo">
+        <p class="place-address">Москва, ул. Красная Пресня, 13</p>
+        <a class="place-button" href="https://yandex.com.tr/harita/-/CHa5rTlY" target="_blank">Построить маршрут</a>
     </div>
 </section>
 
 <!-- program -->
-<section id="program" class="program hidden">
-    <p class="program-title">Программа <br>события</p>
+<section id="program" class="program">
+    <p id="program-title" class="program-title">Программа <br>события</p>
 
     <ul class="program-list">
-        <li class="program-item hidden">
-            <div class="program-line"></div>
+        <li class="program-item">
             <div class="program-content">
                 <div class="program-heading">
                     <span class="program-time">14:00</span>
                     <span class="program-time">Welcome</span>
                 </div>
                 <p class="program-desc">
-                    Гости собираются в кафе Мишель, где их встречает команда организаторов.
+                    Гости соберутся в кафе Мишель, где их встретит команда организаторов.
                 </p>
             </div>
         </li>
 
-        <li class="program-item hidden">
-            <div class="program-line"></div>
+        <li class="program-item">
             <div class="program-content">
                 <div class="program-heading">
                     <span class="program-time">15:00</span>
                     <span class="program-time">Церемония</span>
                 </div>
                 <p class="program-desc">
-                    Мы обменяемся клятвами и кольцами. Слёзы радости и улыбки счастья.
+                    Мы обменяемся клятвами и кольцами.
                 </p>
             </div>
         </li>
         
-        <li class="program-item hidden">
-            <div class="program-line"></div>
+        <li class="program-item">
             <div class="program-content">
                 <div class="program-heading">
                     <span class="program-time">16:00</span>
@@ -120,8 +99,7 @@
             </div>
         </li>
         
-        <li class="program-item hidden">
-            <div class="program-line"></div>
+        <li class="program-item">
             <div class="program-content">
                 <div class="program-heading">
                     <span class="program-time">21:00</span>
@@ -133,8 +111,7 @@
             </div>
         </li>
         
-        <li class="program-item hidden">
-            <div class="program-line"></div>
+        <li class="program-item">
             <div class="program-content">
                 <div class="program-heading">
                     <span class="program-time">23:00</span>
@@ -147,35 +124,29 @@
         </li>
 
     </ul>
-
 </section>
 
 <!-- Дресс код -->
 <section id="dresscode" class="dresscode">
-    <!-- общий серый прямоугольник -->
     <div class="dc-card">
-
-        <!-- верхняя шапка остаётся неизменной -->
         <header class="dc-fixed">
             <p class="dc-title-big">Дресс код</p>
-            <p class="dc-sub">Просим поддержать стилистику<br>нашего события</p>
-            <!-- подсказка свайпа -->
+            <p class="dc-sub">Пожалуйста, поддержите стилистику<br>нашего события</p>
             <div class="dc-hint-wrap">
-                <p class="dc-hint">Листайте вбок</p>
                 <div class="horizontal_scroll-indicator">
                     <div class="horizontal_scroll-track"></div>
                     <div class="horizontal_scroll-line"></div>
                 </div>
+                <p class="hint">Листайте вбок</p>
             </div>
         </header>
 
-        <div class="dc-slider">
-            <!-- Слайд 1 -->
+        <div id="dc-slider" class="dc-slider">
             <article class="dc-slide current">
                 <p class="dc-gender">Женский</p>
                 <p class="dc-text">
-                    Платья или костюмы<br>
-                    в чёрных, бежевых или серых оттенков
+                    Однотонные наряды<br>
+                    в чёрных, бежевых или серых оттенках
                 </p>
 
                 <div class="dc-palette">
@@ -186,15 +157,14 @@
                     <span style="--c:#cebca7;"></span>
                     <span style="--c:#c9b29d;"></span>
                 </div>
-                <p class="dc-note">Просим оставить белый цвет для платья невесты, спасибо!</p>
+                <p class="dc-note">Просим оставить белый цвет для платья невесты. <br> Спасибо!</p>
             </article>
 
-            <!-- Слайд 2 -->
             <article class="dc-slide">
                 <p class="dc-gender">Мужской</p>
                 <p class="dc-text">
                     Костюмы с пиджаком или без<br>
-                    в чёрных или серых тонах, можно с белой рубашкой
+                    в чёрных или серых оттенках
                 </p>
 
                 <div class="dc-palette">
@@ -205,7 +175,7 @@
                     <span style="--c:#ddd;"></span>
                     <span style="--c:#fff;"></span>
                 </div>
-                <p class="dc-note">Просим оставить смокинг для жениха, спасибо!</p>
+                <p class="dc-note">Просим оставить смокинг для жениха. <br> Спасибо!</p>
             </article>
         </div>
     </div>
@@ -213,7 +183,7 @@
 
 
 <!-- Подключаем скрипт -->
-<script src="script.js"></script>
+<script src="main.js"></script>
 <audio id="introAudio" src="audio/Intro.mp3" preload="auto"></audio>
 </body>
 </html>

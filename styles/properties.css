@@ -8,3 +8,71 @@
     opacity: 1;
     pointer-events: none;
 }
+
+/* Свойства анимации */
+.fade-in-from-left {
+    animation: fade-in-from-left-animation 0.8s forwards;
+}
+@keyframes fade-in-from-left-animation {
+    from {
+        opacity: 0;
+        transform: translateX(-20%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.fade-in.from-top {
+    animation: fade-in-from-top-animation 0.8s forwards;
+}
+@keyframes fade-in-from-top-animation {
+    from {
+        opacity: 0;
+        transform: translateY(-20%);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fade-in-animation 0.8s forwards;
+}
+@keyframes fade-in-animation {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes pulse-animation {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    20% {
+        transform: scale(1.05);
+        opacity: 0.8;
+    }
+    50% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes border-blink {
+    40% {
+        border-color: rgba(255,255,255,1);
+    }
+    50% {
+        border-color: rgba(255,255,255,0.2);
+    }
+    60% {
+        border-color: rgba(255,255,255,1);
+    }
+}
