@@ -2,20 +2,41 @@
 
 let backgroundAudio;
 let saveTheDateSection, placeSection, programSection, dresscodeSection;
+let invite, inviteTapTarget, inviteUnlocked;
 let slider, sliderMouseDown, sliderMouseUp, sliderTouchStart, sliderTouchEnd;
 
 
 document.addEventListener('DOMContentLoaded', onDOMContentLoaded);
-window.addEventListener('orientationchange', updateVh);
 
 function collectContent() {
     saveTheDateSection = document.getElementById('save-the-date');
     placeSection = document.getElementById('place');
     programSection = document.getElementById('program');
     dresscodeSection = document.getElementById('dresscode');
+    
     slider = document.getElementById('dc-slider');
+    invite = document.getElementById('invite');
+    inviteTapTarget = document.querySelector('.tap-target');
 
-    backgroundAudio = document.getElementById('introAudio');
+    backgroundAudio = document.getElementById('backgroundAudio');
+}
+
+function unlockInvite(){
+    inviteUnlocked = true;
+    playBackgroundAudio();
+    setTimeout(() => {
+        inviteTapTarget.classList.remove('initial');
+        inviteTapTarget.classList.add('spread');
+    }, 2400);
+    
+    setTimeout(() => {
+        invite.classList.add("fade-out");
+    }, 4000);
+    
+    setTimeout(() => {
+        document.body.classList.remove('disable-scroll');
+        document.body.classList.add('enable-scroll');
+    }, 4800);
 }
 
 function resetContent() {
@@ -59,37 +80,46 @@ function resetContent() {
         slider.removeEventListener('touchend', sliderTouchEnd);
     }
     document.removeEventListener('visibilitychange', handleVisibilityChange);
-
+    if (inviteTapTarget)    {
+        inviteTapTarget.removeEventListener('mousedown', unlockInvite);
+        inviteTapTarget.removeEventListener('touchstart', unlockInvite);
+    }
     observers.forEach(o => o.disconnect());
     observers.length = 0;
+
+    document.body.classList.add('disable-scroll');
+    inviteUnlocked = false;
 }
 
 function onDOMContentLoaded(){
     collectContent();
     resetContent();
-    
+
     setupSaveTheDateSection();
     setupPlaceSection();
     setupProgramSection();
     setupDresscodeSection();
-    // добавить на клик
-    // playBackgroundAudio();
     
     document.addEventListener('visibilitychange', handleVisibilityChange);
+    inviteTapTarget.addEventListener('mousedown', unlockInvite);
+    inviteTapTarget.addEventListener('touchstart', unlockInvite);
 }
 
 function playBackgroundAudio() {
-    if (backgroundAudio) {
+    if (backgroundAudio && inviteUnlocked) {
         backgroundAudio.volume = 0.5;
         backgroundAudio.play();
     }
 }
 
 function handleVisibilityChange() {
-    if (document.hidden) {
-        backgroundAudio.pause();
-    } else {
-        backgroundAudio.play();
+    if (inviteUnlocked) {
+        if (document.hidden) {
+            backgroundAudio.pause();
+        } else {
+            backgroundAudio.play();
+        }
+        return;
     }
 }
 

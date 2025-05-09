@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="styles/typography.css">
     <link rel="stylesheet" href="styles/body.css">
     <link rel="stylesheet" href="styles/main.css">
-    <link rel="stylesheet" href="styles/cover.css">
+    <link rel="stylesheet" href="styles/invite.css">
     <link rel="stylesheet" href="styles/intro.css">
     <link rel="stylesheet" href="styles/save-the-date.css">
     <link rel="stylesheet" href="styles/place.css">
@@ -26,8 +26,18 @@
 
 <!-- intro -->
 <main class="main">
+    <div id="invite" class = "invite">
+        <div class = "invite-cover">
+        </div>
+        <div class="tap-target initial">
+            <span class="tap-ring r1"></span>
+            <span class="tap-ring r2"></span>
+            <span class="tap-ring r3"></span>
+        </div>
+        <p>Разблокируйте приглашение</p>
+    </div>
     <div class="intro">
-        <img src="images/intro/cover.jpg" alt="Наша свадьба" class="intro-photo">
+        <img src="images/intro/cover.jpg" alt="Наша свадьба" class="intro-cover">
         <div class="intro-text-container">
             <p class="intro-subtitle">Свадебное торжество</p>
             <p class="intro-names">Кирилл & Екатерина</p>
@@ -184,6 +194,7 @@
 
 <!-- Подключаем скрипт -->
 <script src="main.js"></script>
-<audio id="introAudio" src="audio/Intro.mp3" preload="auto"></audio>
+<audio id="inviteAudio" src="audio/Invite.mp3" preload="auto"></audio>
+<audio id="backgroundAudio" src="audio/Intro-1.mp3" preload="auto"></audio>
 </body>
 </html>
