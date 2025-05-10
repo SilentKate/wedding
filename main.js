@@ -21,24 +21,6 @@ function collectContent() {
     backgroundAudio = document.getElementById('backgroundAudio');
 }
 
-function unlockInvite(){
-    inviteUnlocked = true;
-    playBackgroundAudio();
-    setTimeout(() => {
-        inviteTapTarget.classList.remove('initial');
-        inviteTapTarget.classList.add('spread');
-    }, 2400);
-    
-    setTimeout(() => {
-        invite.classList.add("fade-out");
-    }, 4000);
-    
-    setTimeout(() => {
-        document.body.classList.remove('disable-scroll');
-        document.body.classList.add('enable-scroll');
-    }, 4800);
-}
-
 function resetContent() {
     if (saveTheDateSection){
         saveTheDateSection.classList.remove('fade-in');
@@ -73,7 +55,12 @@ function resetContent() {
     }
     
     window.scrollTo(0, 0);
-    if (slider)    {
+    document.body.classList.add('disable-scroll');
+    inviteUnlocked = false;
+}
+
+function unsubscribe(){
+    if (slider) {
         slider.removeEventListener('mousedown', sliderMouseDown);
         slider.removeEventListener('mouseup', sliderMouseUp);
         slider.removeEventListener('touchstart', sliderTouchStart);
@@ -86,12 +73,10 @@ function resetContent() {
     }
     observers.forEach(o => o.disconnect());
     observers.length = 0;
-
-    document.body.classList.add('disable-scroll');
-    inviteUnlocked = false;
 }
 
 function onDOMContentLoaded(){
+    unsubscribe();
     collectContent();
     resetContent();
 
@@ -105,10 +90,35 @@ function onDOMContentLoaded(){
     inviteTapTarget.addEventListener('touchstart', unlockInvite);
 }
 
+function unlockInvite(){
+    if (inviteUnlocked)    {
+        return;
+    }
+    
+    inviteUnlocked = true;
+    playBackgroundAudio();
+    setTimeout(() => {
+        inviteTapTarget.classList.remove('initial');
+        inviteTapTarget.classList.add('spread');
+    }, 2400);
+
+    setTimeout(() => {
+        invite.classList.add("fade-out");
+    }, 5000);
+
+    setTimeout(() => {
+        invite.classList.remove("fade-out");
+        invite.classList.add("hidden");
+
+        document.body.classList.remove('disable-scroll');
+        document.body.classList.add('enable-scroll');
+    }, 6000);
+}
+
 function playBackgroundAudio() {
     if (backgroundAudio && inviteUnlocked) {
         backgroundAudio.volume = 0.5;
-        backgroundAudio.play();
+        backgroundAudio.play().catch();
     }
 }
 
@@ -117,9 +127,8 @@ function handleVisibilityChange() {
         if (document.hidden) {
             backgroundAudio.pause();
         } else {
-            backgroundAudio.play();
+            backgroundAudio.play().catch();
         }
-        return;
     }
 }
 
@@ -209,14 +218,23 @@ function setupDresscodeSection() {
 
     sliderMouseDown = e => startX = e.clientX;
     sliderMouseUp = e => {
-        if (Math.abs(e.clientX - startX) > 30) { show(idx + 1); reset(); }
+        if (Math.abs(e.clientX - startX) > 40) {
+            show(idx + 1);
+            reset();
+            console.log('Ваше сообщение');
+        }
     };
+    
     slider.addEventListener('mousedown', sliderMouseDown);
     slider.addEventListener('mouseup', sliderMouseUp);
 
     sliderTouchStart = e => startX = e.touches[0].clientX;
     sliderTouchEnd = e => {
-        if (Math.abs(e.changedTouches[0].clientX - startX) > 40) { show(idx + 1); reset(); }
+        if (Math.abs(e.changedTouches[0].clientX - startX) > 40) {
+            show(idx + 1);
+            reset();
+        }
+        console.log('Ваше сообщение');
     };
     slider.addEventListener('touchstart', sliderTouchStart, { passive:true });
     slider.addEventListener('touchend', sliderTouchEnd);

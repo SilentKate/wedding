@@ -2,6 +2,8 @@
     color: black;
     text-align: center;
     width: 100%;
+    padding-inline: 4%;
+    box-sizing: border-box;
 }
 
 .program-list {

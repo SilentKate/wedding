@@ -76,3 +76,9 @@
     align-items: flex-end;
     text-align: right;
 }
+
+.dc-note {
+    line-height: 1.3;
+    min-height: calc(1.3em * 3);
+    margin-top: auto;
+}

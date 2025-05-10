@@ -22,20 +22,25 @@
 }
 
 .place-logo {
-    width: 40%;
+    max-width: clamp(320px, 40%, 320px);
     height: auto;
 }
 
 .place-button {
-    width: 40%;
     padding: 16px 30px;
     border: 2px solid white;
-    box-sizing:border-box;
     border-radius: 40px;
     color: white;
     background: transparent;
     animation: border-blink 4s infinite;
     pointer-events: auto;
+    text-decoration: none;
+    
+    box-sizing:border-box;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
 }
 
 .place-button:hover {
