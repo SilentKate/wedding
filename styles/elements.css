@@ -67,6 +67,16 @@
     position: relative;
     width: 80px;
     height: 80px;
+}
+
+.tap-target,
+.tap-target *{
+    user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
     cursor: pointer;
 }
 

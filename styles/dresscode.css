@@ -26,6 +26,7 @@
     overflow: hidden;
     overscroll-behavior-x: contain;
     touch-action: pan-x;
+    cursor: pointer;
 }
 
 .dc-slide {

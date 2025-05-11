@@ -6,7 +6,8 @@ let invite, inviteTapTarget, inviteUnlocked;
 let slider, sliderMouseDown, sliderMouseUp, sliderTouchStart, sliderTouchEnd;
 
 
-document.addEventListener('DOMContentLoaded', onDOMContentLoaded);
+document.addEventListener('DOMContentLoaded', onReloaded);
+addEventListener('pageshow', onReloaded);
 
 function collectContent() {
     invite = document.getElementById('invite');
@@ -88,7 +89,7 @@ function unsubscribe(){
     observers.length = 0;
 }
 
-function onDOMContentLoaded(){
+function onReloaded(){
     unsubscribe();
     collectContent();
     resetContent();
