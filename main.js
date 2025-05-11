@@ -93,6 +93,9 @@ function onDOMContentLoaded(){
     collectContent();
     resetContent();
 
+    const vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+    
     setupSaveTheDateSection();
     setupPlaceSection();
     setupProgramSection();
@@ -111,15 +114,15 @@ function unlockInvite(){
     }
     inviteUnlocked = true;
 
-    inviteTapTarget.classList.remove('initial');
-    inviteTapTarget.classList.add('spread');
-    invite.classList.add("fade-out");
-    invite.classList.remove("fade-out");
-    invite.classList.add("hidden");
-
-    document.body.classList.remove('disable-scroll');
-    document.body.classList.add('enable-scroll');
-    return;
+    // inviteTapTarget.classList.remove('initial');
+    // inviteTapTarget.classList.add('spread');
+    // invite.classList.add("fade-out");
+    // invite.classList.remove("fade-out");
+    // invite.classList.add("hidden");
+    //
+    // document.body.classList.remove('disable-scroll');
+    // document.body.classList.add('enable-scroll');
+    // return;
     playBackgroundAudio();
     setTimeout(() => {
         inviteTapTarget.classList.remove('initial');
