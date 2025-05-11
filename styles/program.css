@@ -4,6 +4,7 @@
     width: 100%;
     padding-inline: 4%;
     box-sizing: border-box;
+    position: relative;
 }
 
 .program-list {
@@ -13,6 +14,17 @@
     flex-direction: column;
     align-items: flex-start;
     text-align: left;
+}
+
+.program-bg {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    bottom: -7rem;
+    height: auto;
+
+    opacity: 5%;
+    pointer-events: none;
 }
 
 .program-item {
