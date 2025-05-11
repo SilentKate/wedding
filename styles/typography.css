@@ -1,0 +1,60 @@
+h1, h2, h3, h4, h5, h6, p {
+    margin: 1rem  0;
+    font-family: "Oranienbaum", sans-serif;
+}
+
+h1 {
+    font-size: 3em;
+    font-weight: bold;
+}
+
+h2 {
+    font-size: 5em;
+    font-weight: bold;
+    font-style: italic;
+}
+
+h3 {
+    font-size: 2em;
+    font-weight: bold;
+    font-style: normal;
+}
+
+h4 {
+    font-size: 1.6em;
+    font-weight: bold;
+    font-style: normal;
+}
+
+h5 {
+    font-size: 1.2em;
+    font-weight: normal;
+    font-style: normal;
+}
+
+h6 {
+    font-size: 0.8em;
+    font-weight: normal;
+    font-style: normal;
+    text-transform: uppercase;
+    opacity: 80%;
+}
+
+p {
+    font-size: 1.2em;
+    font-weight: normal;
+    font-style: normal;
+    opacity: 80%;
+}
+
+/* Oranienbaum */
+@font-face{
+    font-family: "Oranienbaum";
+    src:
+            url("../fonts/Oranienbaum.woff2") format("woff2"),
+            url("../fonts/Oranienbaum.woff")  format("woff"),
+            url("../fonts/Oranienbaum.ttf")   format("truetype");
+    font-weight: normal;
+    font-style: normal;
+    font-display:swap;
+}

@@ -8,6 +8,11 @@
 
 .program-list {
     list-style-type: disc;
+    gap: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
 }
 
 .program-item {
@@ -22,17 +27,14 @@
 }
 
 .program-content { 
-    flex:1;
-    align-content: start;
-}
-
-.program-heading{
     display: flex;
-    gap: 16px;
-    text-align: start;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
 }
 
 .program-desc {
-    opacity: 0.8;
+    /*opacity: 0.7;*/
     text-align: left;
+    margin: 0 0;
 }

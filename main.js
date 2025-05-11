@@ -1,7 +1,7 @@
 ﻿const observers = [];
 
 let backgroundAudio;
-let saveTheDateSection, placeSection, programSection, dresscodeSection;
+let saveTheDateSection, placeSection, programSection, dresscodeSection, flowersSection, giftsSection;
 let invite, inviteTapTarget, inviteUnlocked;
 let slider, sliderMouseDown, sliderMouseUp, sliderTouchStart, sliderTouchEnd;
 
@@ -9,15 +9,18 @@ let slider, sliderMouseDown, sliderMouseUp, sliderTouchStart, sliderTouchEnd;
 document.addEventListener('DOMContentLoaded', onDOMContentLoaded);
 
 function collectContent() {
+    invite = document.getElementById('invite');
+    inviteTapTarget = document.querySelector('.tap-target');
+    
     saveTheDateSection = document.getElementById('save-the-date');
     placeSection = document.getElementById('place');
     programSection = document.getElementById('program');
     dresscodeSection = document.getElementById('dresscode');
-    
     slider = document.getElementById('dc-slider');
-    invite = document.getElementById('invite');
-    inviteTapTarget = document.querySelector('.tap-target');
 
+    flowersSection = document.getElementById('flowers');
+    giftsSection = document.getElementById('gifts'); 
+    
     backgroundAudio = document.getElementById('backgroundAudio');
 }
 
@@ -54,6 +57,16 @@ function resetContent() {
         dresscodeSection.classList.add('hidden');
     }
     
+    if (flowersSection) {
+        flowersSection.classList.remove('fade-in');
+        flowersSection.classList.add('hidden');
+    }
+    
+    if (giftsSection) {
+        giftsSection.classList.remove('fade-in');
+        giftsSection.classList.add('hidden');
+    }
+    
     window.scrollTo(0, 0);
     document.body.classList.add('disable-scroll');
     inviteUnlocked = false;
@@ -84,6 +97,8 @@ function onDOMContentLoaded(){
     setupPlaceSection();
     setupProgramSection();
     setupDresscodeSection();
+    setupFlowersSection();
+    setupGiftsSection();
     
     document.addEventListener('visibilitychange', handleVisibilityChange);
     inviteTapTarget.addEventListener('mousedown', unlockInvite);
@@ -94,8 +109,17 @@ function unlockInvite(){
     if (inviteUnlocked)    {
         return;
     }
-    
     inviteUnlocked = true;
+
+    inviteTapTarget.classList.remove('initial');
+    inviteTapTarget.classList.add('spread');
+    invite.classList.add("fade-out");
+    invite.classList.remove("fade-out");
+    invite.classList.add("hidden");
+
+    document.body.classList.remove('disable-scroll');
+    document.body.classList.add('enable-scroll');
+    return;
     playBackgroundAudio();
     setTimeout(() => {
         inviteTapTarget.classList.remove('initial');
@@ -250,4 +274,31 @@ function setupDresscodeSection() {
         clearInterval(timer);
         timer = setInterval(() => show(idx + 1), 6000);
     }
+}
+
+function setupFlowersSection() {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                flowersSection.classList.add('fade-in-from-right');
+                observer.unobserve(placeSection);
+            }
+        });
+    }, { threshold: 0.4 });
+    observer.observe(flowersSection);
+    observers.push(observer);
+}
+
+
+function setupGiftsSection() {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                giftsSection.classList.add('fade-in-from-left');
+                observer.unobserve(giftsSection);
+            }
+        });
+    }, { threshold: 0.4 });
+    observer.observe(giftsSection);
+    observers.push(observer);
 }

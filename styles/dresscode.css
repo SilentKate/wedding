@@ -23,6 +23,8 @@
 .dc-slider {
     position: relative;
     overflow: hidden;
+    overscroll-behavior-x: contain;
+    touch-action: pan-x;
 }
 
 .dc-slide {
@@ -80,5 +82,4 @@
 .dc-note {
     line-height: 1.3;
     min-height: calc(1.3em * 3);
-    margin-top: auto;
 }

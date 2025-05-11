@@ -11,6 +11,7 @@ body {
     margin-right: auto;
     margin-left: auto;
     user-select:none;
+    gap: 3rem;
 }
 
 body.enable-scroll {
@@ -20,5 +21,4 @@ body.enable-scroll {
 body.disable-scroll {
     overflow: hidden;
 }
-
 
