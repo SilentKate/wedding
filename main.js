@@ -212,11 +212,13 @@ function setupProgramSection() {
 }
 
 function setupDresscodeSection() {
+    let timer;
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 dresscodeSection.classList.remove('hidden');
                 dresscodeSection.classList.add('fade-in');
+                timer = setInterval(() => show(idx + 1), 10000);
                 observer.unobserve(dresscodeSection);
             }
         });
@@ -241,7 +243,6 @@ function setupDresscodeSection() {
 
     let idx = 0;
 
-    let timer = setInterval(() => show(idx + 1), 10000);
     let startX = 0;
 
     sliderMouseDown = e => startX = e.clientX;

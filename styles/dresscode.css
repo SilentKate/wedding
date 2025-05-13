@@ -5,7 +5,7 @@
 .dc-card {
     background: #2d2d2d;
     color: #fff;
-    padding: 40px;
+    /*padding: 40px;*/
     scrollbar-width: none;
     overflow: visible;
     width: 100%;
@@ -50,6 +50,8 @@
 }
 
 .dc-palette {
+    padding-left: 40px;
+    padding-right: 40px;
     display: grid;
     gap: 4px;
     height: 50px;
@@ -82,6 +84,8 @@
 }
 
 .dc-note {
+    padding-left: 40px;
+    padding-right: 40px;
     line-height: 1.3;
     min-height: calc(1.3em * 3);
 }
@@ -89,6 +93,31 @@
 .dc-reference {
     max-width: 100%;
     height: auto;
-    left: 0;
     pointer-events: none;
+}
+
+.dc-gender {
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+.dc-text {
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+.dc-title-big {
+    padding-top: 40px;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+.dc-sub {
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+.dc-hint-wrap {
+    padding-left: 40px;
+    padding-right: 40px;
 }
