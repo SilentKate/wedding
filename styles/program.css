@@ -20,7 +20,7 @@
     position: absolute;
     width: 100%;
     left: 0;
-    bottom: -7rem;
+    bottom: -2rem;
     height: auto;
 
     opacity: 5%;
@@ -46,7 +46,6 @@
 }
 
 .program-desc {
-    /*opacity: 0.7;*/
     text-align: left;
     margin: 0 0;
 }
