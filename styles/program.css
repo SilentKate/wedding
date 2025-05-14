@@ -18,8 +18,8 @@
 
 .program-bg {
     position: absolute;
-    width: 80%;
-    bottom: -4rem;
+    width: 100%;
+    bottom: -6rem;
     height: auto;
     left: 50%;
     transform: translateX(-50%);

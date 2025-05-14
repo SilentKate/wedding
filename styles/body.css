@@ -11,6 +11,7 @@ body {
     margin-left: auto;
     user-select:none;
     gap: 4rem;
+    text-align: center;
 }
 
 body.enable-scroll {

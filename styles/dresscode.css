@@ -1,11 +1,11 @@
 .dresscode {
     width: 100%;
+    text-align: left;
 }
 
 .dc-card {
     background: #2d2d2d;
     color: #fff;
-    /*padding: 40px;*/
     scrollbar-width: none;
     overflow: visible;
     width: 100%;
