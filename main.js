@@ -5,9 +5,15 @@ let saveTheDateSection, placeSection, programSection, dresscodeSection, flowersS
 let invite, inviteTapTarget, inviteUnlocked;
 let slider, sliderMouseDown, sliderMouseUp, sliderTouchStart, sliderTouchEnd;
 
-
+if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+}
 document.addEventListener('DOMContentLoaded', onReloaded);
-addEventListener('pageshow', onReloaded);
+addEventListener('pageshow', () =>{
+    requestAnimationFrame(() => {
+        requestAnimationFrame(onReloaded);
+    });
+});
 
 function collectContent() {
     invite = document.getElementById('invite');
@@ -67,7 +73,9 @@ function resetContent() {
         giftsSection.classList.remove('fade-in');
         giftsSection.classList.add('hidden');
     }
-    
+
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
     window.scrollTo(0, 0);
     document.body.classList.add('disable-scroll');
     inviteUnlocked = false;
@@ -115,15 +123,15 @@ function unlockInvite(){
     }
     inviteUnlocked = true;
 
-    inviteTapTarget.classList.remove('initial');
-    inviteTapTarget.classList.add('spread');
-    invite.classList.add("fade-out");
-    invite.classList.remove("fade-out");
-    invite.classList.add("hidden");
-
-    document.body.classList.remove('disable-scroll');
-    document.body.classList.add('enable-scroll');
-    return;
+    // inviteTapTarget.classList.remove('initial');
+    // inviteTapTarget.classList.add('spread');
+    // invite.classList.add("fade-out");
+    // invite.classList.remove("fade-out");
+    // invite.classList.add("hidden");
+    //
+    // document.body.classList.remove('disable-scroll');
+    // document.body.classList.add('enable-scroll');
+    // return;
     playBackgroundAudio();
     setTimeout(() => {
         inviteTapTarget.classList.remove('initial');
