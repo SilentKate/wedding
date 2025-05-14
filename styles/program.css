@@ -18,12 +18,12 @@
 
 .program-bg {
     position: absolute;
-    width: 100%;
-    left: 0;
-    bottom: -2rem;
+    width: 80%;
+    bottom: -4rem;
     height: auto;
-
-    opacity: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 12%;
     pointer-events: none;
 }
 

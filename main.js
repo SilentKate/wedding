@@ -206,7 +206,7 @@ function setupProgramSection() {
                 observer.unobserve(programTitle);
             }
         });
-    }, { threshold: 0.4 });
+    }, { threshold: 0.2 });
     observer.observe(programTitle);
     observers.push(observer);
 }
