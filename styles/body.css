@@ -1,6 +1,5 @@
 body {
     padding: 0;
-    background-color: white;
     color: white;
     display: flex;
     align-items: center;
@@ -20,5 +19,44 @@ body.enable-scroll {
 
 body.disable-scroll {
     overflow: hidden;
+}
+
+.body-bg {
+    max-width: 100%;
+    height: auto;
+    pointer-events: auto;
+}
+
+.body-button {
+    padding: 16px 30px;
+    border: 2px solid white;
+    border-radius: 40px;
+    color: white;
+    background: transparent;
+    animation: border-blink 4s infinite;
+    pointer-events: auto;
+    text-decoration: none;
+
+    box-sizing:border-box;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.body-icon-button {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #fff;
+
+    text-decoration: none;
+
+    transition: background-color .2s, transform .2s;
 }
 

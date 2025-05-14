@@ -1,0 +1,59 @@
+.communications {
+    width: 100%;
+    padding-inline: 4%;
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    gap: 4rem;
+    background-color: #2d2d2d;
+    color: white;
+    padding-top: 4rem;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-bottom: 40px;
+    position: relative;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    max-width: 100%;
+}
+
+.communications-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: start;
+    text-align: left;
+
+    width: 100%;
+    max-width: 100%;
+}
+
+.buttons-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    align-items: end;
+    text-align: right;
+    gap: 40px;
+
+    width: 100%;
+    max-width: 100%;
+}
+
+.contacts-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: right;
+    align-items: end;
+    text-align: right;
+
+    width: 100%;
+    max-width: 100%;
+}
+
+#communications {
+    margin-top:-4rem;
+}

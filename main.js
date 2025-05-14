@@ -115,15 +115,15 @@ function unlockInvite(){
     }
     inviteUnlocked = true;
 
-    // inviteTapTarget.classList.remove('initial');
-    // inviteTapTarget.classList.add('spread');
-    // invite.classList.add("fade-out");
-    // invite.classList.remove("fade-out");
-    // invite.classList.add("hidden");
-    //
-    // document.body.classList.remove('disable-scroll');
-    // document.body.classList.add('enable-scroll');
-    // return;
+    inviteTapTarget.classList.remove('initial');
+    inviteTapTarget.classList.add('spread');
+    invite.classList.add("fade-out");
+    invite.classList.remove("fade-out");
+    invite.classList.add("hidden");
+
+    document.body.classList.remove('disable-scroll');
+    document.body.classList.add('enable-scroll');
+    return;
     playBackgroundAudio();
     setTimeout(() => {
         inviteTapTarget.classList.remove('initial');
@@ -206,7 +206,7 @@ function setupProgramSection() {
                 observer.unobserve(programTitle);
             }
         });
-    }, { threshold: 0.2 });
+    }, { threshold: 0.4 });
     observer.observe(programTitle);
     observers.push(observer);
 }
@@ -222,7 +222,7 @@ function setupDresscodeSection() {
                 observer.unobserve(dresscodeSection);
             }
         });
-    }, { threshold: 0.4 });
+    }, { threshold: 0.2 });
     observer.observe(dresscodeSection);
     observers.push(observer);
     

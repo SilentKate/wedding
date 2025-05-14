@@ -4,6 +4,20 @@
     height: 100%;
 }
 
+.intro::after{
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events:none;
+    background: linear-gradient(
+            0deg,
+            rgba(0,0,0,.8) 0%,
+            rgba(0,0,0,.3) 40%,
+            rgba(0,0,0,0) 60%
+    );
+    z-index: -1;
+}
+
 .intro-cover {
     position: absolute;
     inset: 0;

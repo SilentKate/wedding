@@ -23,24 +23,7 @@
     height: auto;
 }
 
-.place-button {
-    padding: 16px 30px;
-    border: 2px solid white;
-    border-radius: 40px;
-    color: white;
-    background: transparent;
-    animation: border-blink 4s infinite;
-    pointer-events: auto;
-    text-decoration: none;
-    
-    box-sizing:border-box;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-}
-
-.place-button:hover {
+.body-button:hover {
     background-color: rgba(255, 255, 255, 0.11);
     color: #2d2d2d;
 }
