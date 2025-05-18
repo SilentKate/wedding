@@ -11,6 +11,8 @@ if ('scrollRestoration' in history) {
     history.scrollRestoration = 'manual';
 }
 document.addEventListener('DOMContentLoaded', onReloaded);
+window.addEventListener('resize', setupHeight);
+window.addEventListener('load', setupHeight);
 addEventListener('pageshow', () =>{
     requestAnimationFrame(() => {
         requestAnimationFrame(onReloaded);
@@ -117,10 +119,8 @@ function resetContent() {
         }
     }
 
-    document.documentElement.scrollTop = 0;
-    document.body.scrollTop = 0;
-    window.scrollTo(0, 0);
-    document.body.classList.add('disable-scroll');
+    resetScroll();
+    disableScroll();
     inviteUnlocked = false;
 }
 
@@ -140,18 +140,24 @@ function unsubscribe(){
     observers.length = 0;
 }
 
+function setupDocumentOnReloaded() {
+    document.documentElement.style.transitionDelay = '200ms';
+    document.documentElement.classList.remove('hidden');
+    document.documentElement.classList.add('fade-in');
+}
+
+function setupHeight(){
+    const vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+}
+
 function onReloaded(){
     unsubscribe();
     collectContent();
     resetContent();
 
-    const vh = window.innerHeight * 0.01;
-    document.documentElement.style.setProperty('--vh', `${vh}px`);
-    document.documentElement.style.transitionDelay = '200ms';
-    // document.documentElement.classList.remove("disable-events")
-    document.documentElement.classList.remove('hidden');
-    document.documentElement.classList.add('fade-in');
-    // document.documentElement.classList.add("enable-events")
+    setupHeight();
+    setupDocumentOnReloaded();
     
     setupSaveTheDateSection();
     setupPlaceSection();
@@ -167,16 +173,44 @@ function onReloaded(){
     inviteTapTarget.addEventListener('touchstart', unlockInvite);
 }
 
+function enableScroll() {
+    const html = document.documentElement;
+    html.classList.remove('disable-scroll');
+    html.classList.add('enable-scroll');
+    
+    const body = document.body;
+    body.classList.remove('disable-scroll');
+    body.classList.add('enable-scroll');
+    body.style.position = '';
+    body.style.top = '';
+    body.style.left = '';
+    body.style.width = '';
+    body.style.height = '';
+}
+
+function disableScroll() {
+    const html = document.documentElement;
+    html.classList.remove('enable-scroll');
+    html.classList.add('disable-scroll');
+    
+    const body = document.body;
+    body.classList.remove('enable-scroll');
+    body.classList.add('disable-scroll');
+}
+
+function resetScroll() {
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+    window.scrollTo(0, 0);
+}
+
 function unlockInvite(){
     if (inviteUnlocked)    {
         return;
     }
     inviteUnlocked = true;
     document.documentElement.style.setProperty('background-color', `white`);
-    document.documentElement.classList.remove("disable-scroll")
-    const intro = document.getElementById('intro');
-    intro.classList.remove("hidden");
-    intro.classList.add("visible");
+    
 
     // debug
     // invite.classList.add("hidden");
@@ -184,8 +218,12 @@ function unlockInvite(){
     // document.body.classList.add('enable-scroll');
     // return;
     // debug
+
     
     playBackgroundAudio();
+    const intro = document.getElementById('intro');
+    intro.classList.remove("hidden");
+    intro.classList.add("visible");
     
     setTimeout(() => {
         inviteTapTarget.classList.remove('initial');
@@ -199,11 +237,8 @@ function unlockInvite(){
     setTimeout(() => {
         invite.classList.remove("fade-out");
         invite.classList.add("hidden");
+        enableScroll();
 
-        document.body.classList.remove('disable-events');
-        document.body.classList.remove('disable-scroll');
-        document.body.classList.add('enable-scroll');
-        document.body.classList.add('enable-events');
     }, 5000);
 }
 
@@ -388,13 +423,13 @@ function setupCommunicationsSection() {
                     const communications = document.getElementById('communications-container');
                     communications.classList.remove('hidden');
                     communications.classList.add('fade-in-from-right');
-                }, 1200)
+                }, 800)
                 
                 setTimeout(() => {
                     const contacts = document.getElementById('contacts-container');
                     contacts.classList.remove('hidden');
                     contacts.classList.add('fade-in-from-left');
-                }, 2000)
+                }, 1600)
 
                 coverObserver.unobserve(communicationCover);
             }
