@@ -25,7 +25,6 @@
     position: relative;
     overflow: hidden;
     overscroll-behavior-x: contain;
-    touch-action: pan-x;
     cursor: pointer;
 }
 
@@ -36,6 +35,7 @@
     transform: translateX(100%);
     transition: transform .6s ease, opacity .6s ease;
     width: 100%;
+    touch-action: auto;
 }
 
 .dc-slide.current {

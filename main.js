@@ -187,11 +187,11 @@ function unlockInvite(){
     setTimeout(() => {
         inviteTapTarget.classList.remove('initial');
         inviteTapTarget.classList.add('spread');
-    }, 2400);
+    }, 1800);
 
     setTimeout(() => {
         invite.classList.add("fade-out");
-    }, 5000);
+    }, 4000);
 
     setTimeout(() => {
         invite.classList.remove("fade-out");
@@ -199,7 +199,7 @@ function unlockInvite(){
 
         document.body.classList.remove('disable-scroll');
         document.body.classList.add('enable-scroll');
-    }, 6000);
+    }, 5000);
 }
 
 function playBackgroundAudio() {
@@ -313,7 +313,6 @@ function setupDresscodeSection() {
         if (Math.abs(e.clientX - startX) > 40) {
             show(idx + 1);
             reset();
-            console.log('Ваше сообщение');
         }
     };
     
@@ -326,7 +325,6 @@ function setupDresscodeSection() {
             show(idx + 1);
             reset();
         }
-        console.log('Ваше сообщение');
     };
     slider.addEventListener('touchstart', sliderTouchStart, { passive:true });
     slider.addEventListener('touchend', sliderTouchEnd);
