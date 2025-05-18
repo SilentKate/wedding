@@ -16,9 +16,17 @@
 }
 
 .disable-scroll {
+    overflow: hidden;
+}
+
+.disable-events {
     pointer-events: none;
     touch-action: none;
-    overflow: hidden;
+}
+
+.enable-events {
+    pointer-events: auto;
+    touch-action: auto;
 }
 
 /* Свойства анимации */

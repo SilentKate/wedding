@@ -35,4 +35,6 @@
     justify-content: end;
     flex-direction: column;
     align-items: center;
+    pointer-events: auto;
+    touch-action: auto;
 }

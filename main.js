@@ -148,8 +148,10 @@ function onReloaded(){
     const vh = window.innerHeight * 0.01;
     document.documentElement.style.setProperty('--vh', `${vh}px`);
     document.documentElement.style.transitionDelay = '200ms';
+    // document.documentElement.classList.remove("disable-events")
     document.documentElement.classList.remove('hidden');
     document.documentElement.classList.add('fade-in');
+    // document.documentElement.classList.add("enable-events")
     
     setupSaveTheDateSection();
     setupPlaceSection();
@@ -198,8 +200,10 @@ function unlockInvite(){
         invite.classList.remove("fade-out");
         invite.classList.add("hidden");
 
+        document.body.classList.remove('disable-events');
         document.body.classList.remove('disable-scroll');
         document.body.classList.add('enable-scroll');
+        document.body.classList.add('enable-events');
     }, 5000);
 }
 
