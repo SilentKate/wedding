@@ -110,10 +110,10 @@ function resetContent() {
         outroSection.classList.remove('fade-in');
         outroSection.classList.add('hidden');
 
-        const outroSectionBg = programSection.querySelector('#outro-bg');
-        if (outroSectionBg) {
-            outroSectionBg.classList.remove('fade-in');
-            outroSectionBg.classList.add('hidden');
+        const outroBg = document.getElementById('outro-bg');
+        if (outroBg) {
+            outroBg.classList.remove('fade-in');
+            outroBg.classList.add('hidden');
         }
     }
 
@@ -407,9 +407,9 @@ function setupOutroSection() {
             if (entry.isIntersecting) {
                 outroSection.classList.add('fade-in');
                 setTimeout(() => {
-                    const outroBg = document.querySelector('#outro-bg');
+                    const outroBg = document.getElementById('outro-bg');
                     outroBg.classList.add('fade-in');
-                }, 600);
+                }, 200);
                 observer.unobserve(outroSection);
             }
         });
