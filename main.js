@@ -176,12 +176,12 @@ function unlockInvite(){
     intro.classList.add("visible");
 
     // debug
-    invite.classList.add("hidden");
-    document.body.classList.remove('disable-scroll');
-    document.body.classList.add('enable-scroll');
+    // invite.classList.add("hidden");
+    // document.body.classList.remove('disable-scroll');
+    // document.body.classList.add('enable-scroll');
+    // return;
     // debug
     
-    return;
     playBackgroundAudio();
     
     setTimeout(() => {
