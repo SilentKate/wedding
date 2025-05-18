@@ -171,6 +171,7 @@ function unlockInvite(){
     }
     inviteUnlocked = true;
     document.documentElement.style.setProperty('background-color', `white`);
+    document.documentElement.classList.remove("disable-scroll")
     const intro = document.getElementById('intro');
     intro.classList.remove("hidden");
     intro.classList.add("visible");
