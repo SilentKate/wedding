@@ -94,6 +94,7 @@
     max-width: 100%;
     height: auto;
     pointer-events: none;
+    margin-bottom: -20px;
 }
 
 .dc-gender {
