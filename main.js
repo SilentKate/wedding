@@ -127,6 +127,8 @@ function onReloaded(){
 
     const vh = window.innerHeight * 0.01;
     document.documentElement.style.setProperty('--vh', `${vh}px`);
+    document.documentElement.classList.remove('hidden');
+    document.documentElement.classList.add('fade-in');
     
     setupSaveTheDateSection();
     setupPlaceSection();
@@ -146,6 +148,7 @@ function unlockInvite(){
         return;
     }
     inviteUnlocked = true;
+    document.documentElement.style.setProperty('background-color', `white`);
 
     inviteTapTarget.classList.remove('initial');
     inviteTapTarget.classList.add('spread');
@@ -157,6 +160,7 @@ function unlockInvite(){
     document.body.classList.add('enable-scroll');
     return;
     playBackgroundAudio();
+    
     setTimeout(() => {
         inviteTapTarget.classList.remove('initial');
         inviteTapTarget.classList.add('spread');
@@ -354,13 +358,13 @@ function setupCommunicationsSection() {
                     const communications = document.getElementById('communications-container');
                     communications.classList.remove('hidden');
                     communications.classList.add('fade-in-from-right');
-                }, 1600)
+                }, 1200)
                 
                 setTimeout(() => {
                     const contacts = document.getElementById('contacts-container');
                     contacts.classList.remove('hidden');
                     contacts.classList.add('fade-in-from-left');
-                }, 2400)
+                }, 2000)
 
                 coverObserver.unobserve(communicationCover);
             }
