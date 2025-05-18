@@ -2,11 +2,13 @@
 .hidden {
     opacity: 0;
     pointer-events: none;
+    touch-action: none;
 }
 
 .visible {
     opacity: 1;
     pointer-events: auto;
+    touch-action: auto;
 }
 
 /* Свойства анимации */
