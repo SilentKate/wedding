@@ -16,6 +16,8 @@
 }
 
 .disable-scroll {
+    pointer-events: none;
+    touch-action: none;
     overflow: hidden;
 }
 
