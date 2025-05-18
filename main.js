@@ -5,6 +5,7 @@ let saveTheDateSection, placeSection, programSection, dresscodeSection, flowersS
 let communicationCover, communicationsSection;
 let invite, inviteTapTarget, inviteUnlocked;
 let slider, sliderMouseDown, sliderMouseUp, sliderTouchStart, sliderTouchEnd;
+let outroSection;
 
 if ('scrollRestoration' in history) {
     history.scrollRestoration = 'manual';
@@ -32,6 +33,8 @@ function collectContent() {
     communicationCover = document.getElementById('communications-cover');
     communicationsSection = document.getElementById('communications');
     
+    outroSection = document.getElementById('outro');
+    
     backgroundAudio = document.getElementById('backgroundAudio');
 }
 
@@ -51,6 +54,12 @@ function resetContent() {
         if (programTitle) {
             programTitle.classList.remove('fade-in');
             programTitle.classList.add('hidden');
+        }
+        
+        const programBg = programSection.querySelector('#program-bg');
+        if (programBg) {
+            programBg.classList.remove('fade-in');
+            programBg.classList.add('hidden');
         }
 
         const programItems = document.querySelectorAll('.program-item');
@@ -96,6 +105,17 @@ function resetContent() {
         contacts.classList.remove('fade-in-from-right');
         contacts.classList.add('hidden');
     }
+    
+    if (outroSection) {
+        outroSection.classList.remove('fade-in');
+        outroSection.classList.add('hidden');
+
+        const outroSectionBg = programSection.querySelector('#outro-bg');
+        if (outroSectionBg) {
+            outroSectionBg.classList.remove('fade-in');
+            outroSectionBg.classList.add('hidden');
+        }
+    }
 
     document.documentElement.scrollTop = 0;
     document.body.scrollTop = 0;
@@ -127,6 +147,7 @@ function onReloaded(){
 
     const vh = window.innerHeight * 0.01;
     document.documentElement.style.setProperty('--vh', `${vh}px`);
+    document.documentElement.style.transitionDelay = '200ms';
     document.documentElement.classList.remove('hidden');
     document.documentElement.classList.add('fade-in');
     
@@ -137,6 +158,7 @@ function onReloaded(){
     setupFlowersSection();
     setupGiftsSection();
     setupCommunicationsSection();
+    setupOutroSection();
     
     document.addEventListener('visibilitychange', handleVisibilityChange);
     inviteTapTarget.addEventListener('mousedown', unlockInvite);
@@ -149,15 +171,16 @@ function unlockInvite(){
     }
     inviteUnlocked = true;
     document.documentElement.style.setProperty('background-color', `white`);
+    const intro = document.getElementById('intro');
+    intro.classList.remove("hidden");
+    intro.classList.add("visible");
 
-    inviteTapTarget.classList.remove('initial');
-    inviteTapTarget.classList.add('spread');
-    invite.classList.add("fade-out");
-    invite.classList.remove("fade-out");
+    // debug
     invite.classList.add("hidden");
-
     document.body.classList.remove('disable-scroll');
     document.body.classList.add('enable-scroll');
+    // debug
+    
     return;
     playBackgroundAudio();
     
@@ -228,17 +251,21 @@ function setupProgramSection() {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 programTitle.classList.add('fade-in');
+                setTimeout(() => {
+                    const programBg = document.getElementById('program-bg');
+                    programBg.classList.add('fade-in');
+                }, 600);
                 
                 const programItems = document.querySelectorAll('.program-item');
                 if (programItems.length) {
                     for (let i = 0; i < programItems.length; i++) {
                         const item = programItems[i];
-                        const delay = i * 800;
+                        const delay = i * 600;
                         item.style.animationDelay = `${delay}ms`;
                         item.classList.add('fade-in-from-left');
                     }
                 }
-
+                
                 observer.unobserve(programTitle);
             }
         });
@@ -372,4 +399,21 @@ function setupCommunicationsSection() {
     }, { threshold: 0.4 });
     coverObserver.observe(communicationCover);
     observers.push(coverObserver);
+}
+
+function setupOutroSection() {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                outroSection.classList.add('fade-in');
+                setTimeout(() => {
+                    const outroBg = document.querySelector('#outro-bg');
+                    outroBg.classList.add('fade-in');
+                }, 600);
+                observer.unobserve(outroSection);
+            }
+        });
+    }, { threshold: 0.4 });
+    observer.observe(outroSection);
+    observers.push(observer);
 }
