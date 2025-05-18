@@ -2,6 +2,7 @@
 
 let backgroundAudio;
 let saveTheDateSection, placeSection, programSection, dresscodeSection, flowersSection, giftsSection;
+let communicationCover, communicationsSection;
 let invite, inviteTapTarget, inviteUnlocked;
 let slider, sliderMouseDown, sliderMouseUp, sliderTouchStart, sliderTouchEnd;
 
@@ -28,12 +29,15 @@ function collectContent() {
     flowersSection = document.getElementById('flowers');
     giftsSection = document.getElementById('gifts'); 
     
+    communicationCover = document.getElementById('communications-cover');
+    communicationsSection = document.getElementById('communications');
+    
     backgroundAudio = document.getElementById('backgroundAudio');
 }
 
 function resetContent() {
     if (saveTheDateSection){
-        saveTheDateSection.classList.remove('fade-in');
+        saveTheDateSection.classList.remove('fade-in-from-left');
         saveTheDateSection.classList.add('hidden');
     }
     
@@ -65,13 +69,32 @@ function resetContent() {
     }
     
     if (flowersSection) {
-        flowersSection.classList.remove('fade-in');
+        flowersSection.classList.remove('fade-in-from-right');
         flowersSection.classList.add('hidden');
     }
     
     if (giftsSection) {
-        giftsSection.classList.remove('fade-in');
+        giftsSection.classList.remove('fade-in-from-left');
         giftsSection.classList.add('hidden');
+    }
+    
+    if (communicationCover) {
+        communicationCover.classList.remove('fade-in');
+        communicationCover.classList.add('hidden');
+    }
+    
+    if (communicationsSection) {
+        communicationsSection.classList.remove('fade-in');
+        communicationsSection.classList.add('hidden');
+
+        const communications = document.getElementById('communications-container');
+        const contacts = document.getElementById('contacts-container');
+
+        communications.classList.remove('fade-in-from-left');
+        communications.classList.add('hidden');
+
+        contacts.classList.remove('fade-in-from-right');
+        contacts.classList.add('hidden');
     }
 
     document.documentElement.scrollTop = 0;
@@ -111,6 +134,7 @@ function onReloaded(){
     setupDresscodeSection();
     setupFlowersSection();
     setupGiftsSection();
+    setupCommunicationsSection();
     
     document.addEventListener('visibilitychange', handleVisibilityChange);
     inviteTapTarget.addEventListener('mousedown', unlockInvite);
@@ -123,15 +147,15 @@ function unlockInvite(){
     }
     inviteUnlocked = true;
 
-    // inviteTapTarget.classList.remove('initial');
-    // inviteTapTarget.classList.add('spread');
-    // invite.classList.add("fade-out");
-    // invite.classList.remove("fade-out");
-    // invite.classList.add("hidden");
-    //
-    // document.body.classList.remove('disable-scroll');
-    // document.body.classList.add('enable-scroll');
-    // return;
+    inviteTapTarget.classList.remove('initial');
+    inviteTapTarget.classList.add('spread');
+    invite.classList.add("fade-out");
+    invite.classList.remove("fade-out");
+    invite.classList.add("hidden");
+
+    document.body.classList.remove('disable-scroll');
+    document.body.classList.add('enable-scroll');
+    return;
     playBackgroundAudio();
     setTimeout(() => {
         inviteTapTarget.classList.remove('initial');
@@ -205,7 +229,7 @@ function setupProgramSection() {
                 if (programItems.length) {
                     for (let i = 0; i < programItems.length; i++) {
                         const item = programItems[i];
-                        const delay = i * 400;
+                        const delay = i * 800;
                         item.style.animationDelay = `${delay}ms`;
                         item.classList.add('fade-in-from-left');
                     }
@@ -314,4 +338,34 @@ function setupGiftsSection() {
     }, { threshold: 0.4 });
     observer.observe(giftsSection);
     observers.push(observer);
+}
+
+function setupCommunicationsSection() {
+    const coverObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                communicationCover.classList.remove('hidden');
+                communicationCover.classList.add('fade-in');
+                
+                communicationsSection.classList.add('fade-in');
+                communicationsSection.classList.remove('hidden');
+
+                setTimeout(() =>                {
+                    const communications = document.getElementById('communications-container');
+                    communications.classList.remove('hidden');
+                    communications.classList.add('fade-in-from-right');
+                }, 1600)
+                
+                setTimeout(() => {
+                    const contacts = document.getElementById('contacts-container');
+                    contacts.classList.remove('hidden');
+                    contacts.classList.add('fade-in-from-left');
+                }, 2400)
+
+                coverObserver.unobserve(communicationCover);
+            }
+        });
+    }, { threshold: 0.4 });
+    coverObserver.observe(communicationCover);
+    observers.push(coverObserver);
 }

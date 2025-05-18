@@ -10,8 +10,9 @@
 }
 
 /* Свойства анимации */
+/* fade-in-from-left */
 .fade-in-from-left {
-    animation: fade-in-from-left-animation 0.8s forwards;
+    animation: fade-in-from-left-animation 800ms forwards;
 }
 @keyframes fade-in-from-left-animation {
     from {
@@ -24,9 +25,9 @@
     }
 }
 
-/* Свойства анимации */
+/* fade-in-from-right */
 .fade-in-from-right {
-    animation: fade-in-from-right-animation 0.8s forwards;
+    animation: fade-in-from-right-animation 800ms forwards;
 }
 @keyframes fade-in-from-right-animation {
     from {
@@ -39,8 +40,9 @@
     }
 }
 
-.fade-in.from-top {
-    animation: fade-in-from-top-animation 0.8s forwards;
+/* fade-in-from-top */
+.fade-in-from-top {
+    animation: fade-in-from-top-animation 800ms forwards;
 }
 @keyframes fade-in-from-top-animation {
     from {
@@ -53,8 +55,9 @@
     }
 }
 
+/* fade-out */
 .fade-out {
-    animation: fade-out-animation 0.8s forwards;
+    animation: fade-out-animation 800ms forwards;
 }
 @keyframes fade-out-animation {
     from {
@@ -65,8 +68,9 @@
     }
 }
 
+/* fade-in */
 .fade-in {
-    animation: fade-in-animation 0.8s forwards;
+    animation: fade-in-animation 800ms forwards;
 }
 @keyframes fade-in-animation {
     from {
@@ -77,6 +81,7 @@
     }
 }
 
+/* Анимации */
 @keyframes pulse-animation {
     0% {
         transform: scale(1);
