@@ -6,7 +6,7 @@
     height: 100vh;
 
     box-sizing: border-box;
-    padding-bottom: 5%;
+    padding-bottom: 10%;
 }
 
 .intro::after{
