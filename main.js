@@ -175,16 +175,14 @@ function setupPlaceSection() {
 }
 
 function setupProgramSection() {
-    const programTitle = document.getElementById('program-title');
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 programSection.classList.remove('hidden');
+                programSection.classList.add('fade-in');
                 
-                programTitle.classList.remove('hidden');
-                programTitle.classList.add('fade-in');
                 setTimeout(() => {
-                    const programBg = document.getElementById('program-bg');
+                    const programBg = document.getElementById('program-bg-container');
                     programBg.classList.remove('hidden');
                     programBg.classList.add('fade-in');
                 }, 600);
@@ -195,7 +193,6 @@ function setupProgramSection() {
                         const item = programItems[i];
                         const delay = i * 600;
                         item.style.animationDelay = `${delay}ms`;
-                        // item.classList.remove('hidden');
                         item.classList.add('fade-in-from-left');
                     }
                 }
@@ -204,7 +201,7 @@ function setupProgramSection() {
             }
         });
     }, { threshold: 0.4 });
-    observer.observe(programTitle);
+    observer.observe(programSection);
     observers.push(observer);
 }
 
@@ -285,7 +282,7 @@ function setupFlowersSection() {
                 observer.unobserve(placeSection);
             }
         });
-    }, { threshold: 0.4 });
+    }, { threshold: 0.6 });
     observer.observe(flowersSection);
     observers.push(observer);
 }
@@ -300,7 +297,7 @@ function setupGiftsSection() {
                 observer.unobserve(giftsSection);
             }
         });
-    }, { threshold: 0.4 });
+    }, { threshold: 0.6 });
     observer.observe(giftsSection);
     observers.push(observer);
 }
@@ -319,13 +316,13 @@ function setupCommunicationsSection() {
                     const communications = document.getElementById('communications-container');
                     communications.classList.remove('hidden');
                     communications.classList.add('fade-in-from-right');
-                }, 1200)
+                }, 800)
                 
                 setTimeout(() => {
                     const contacts = document.getElementById('contacts-container');
                     contacts.classList.remove('hidden');
                     contacts.classList.add('fade-in-from-left');
-                }, 2000)
+                }, 1200)
 
                 coverObserver.unobserve(communicationCover);
             }

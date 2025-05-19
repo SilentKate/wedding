@@ -16,6 +16,11 @@
     text-align: left;
 }
 
+.program-bg-container {
+    position: absolute;
+    inset: 0; 
+}
+
 .program-bg {
     position: absolute;
     width: 100%;
