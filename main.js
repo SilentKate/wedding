@@ -38,6 +38,12 @@ function collectContent() {
     backgroundAudio = document.getElementById('backgroundAudio');
 }
 
+function scrollToTop() {
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+    window.scrollTo(0, 0);
+}
+
 function resetContent() {
     if (saveTheDateSection){
         saveTheDateSection.classList.remove('fade-in-from-left');
@@ -116,10 +122,9 @@ function resetContent() {
             outroBg.classList.add('hidden');
         }
     }
-
-    document.documentElement.scrollTop = 0;
-    document.body.scrollTop = 0;
-    window.scrollTo(0, 0);
+    
+    
+    scrollToTop();
     document.body.classList.add('disable-scroll');
     inviteUnlocked = false;
 }
@@ -183,6 +188,7 @@ function unlockInvite(){
     // debug
     
     playBackgroundAudio();
+    scrollToTop();
     
     setTimeout(() => {
         inviteTapTarget.classList.remove('initial');
