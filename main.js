@@ -196,8 +196,7 @@ function setupProgramSection() {
                         item.classList.add('fade-in-from-left');
                     }
                 }
-                
-                observer.unobserve(programTitle);
+                observer.unobserve(programSection);
             }
         });
     }, { threshold: 0.4 });
