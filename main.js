@@ -197,8 +197,8 @@ function unlockInvite(){
         invite.classList.remove("fade-out");
         invite.classList.add("hidden");
 
-        document.body.classList.remove('disable-scroll');
-        document.body.classList.add('enable-scroll');
+        document.documentElement.classList.remove('disable-scroll');
+        document.documentElement.classList.add('enable-scroll');
     }, 5000);
 }
 

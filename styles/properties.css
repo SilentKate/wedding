@@ -9,6 +9,14 @@
     pointer-events: auto;
 }
 
+.enable-scroll {
+    overflow: auto;
+}
+
+.disable-scroll {
+    overflow: hidden;
+}
+
 /* Свойства анимации */
 /* fade-in-from-left */
 .fade-in-from-left {
