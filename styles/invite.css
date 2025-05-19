@@ -3,10 +3,9 @@
     top: 0;
     left: 0;
     width: 100vw;
-    height: 100vh;
+    height: 100dvh;
     box-sizing: border-box;
-    padding-bottom: 10%;
-    
+    /*padding-bottom: 50px;*/
     
     z-index: 2;
     display: flex;
