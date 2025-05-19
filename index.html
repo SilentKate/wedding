@@ -1,25 +1,14 @@
 ﻿<!DOCTYPE html>
 <html lang="ru" class="hidden disable-scroll" >
 <head>
+    <link rel="preload" href="/images/michel-bg.png" as="image" type="image/png">
+    <link rel="preload" href="fonts/DolomanPavljenko.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="fonts/LainyDay.woff2" as="font" type="font/woff2" crossorigin>
     <style>
-        /* Свойства */
-        .hidden {
-            opacity: 0;
-            pointer-events: none;
-        }
-
-        .visible {
-            opacity: 1;
-            pointer-events: auto;
-        }
-
-        .enable-scroll {
-            overflow: auto;
-        }
-
-        .disable-scroll {
-            overflow: hidden;
-        }
+        .hidden { opacity: 0;  pointer-events: none; }
+        .visible { opacity: 1; pointer-events: auto; }
+        .enable-scroll { overflow: auto; }
+        .disable-scroll { overflow: hidden; }
     </style>
     
     <meta charset="UTF-8"> 
@@ -257,8 +246,6 @@
 
 <!-- Подключаем скрипт -->
 <script src="main.js"></script>
-<link rel="preload" href="fonts/DolomanPavljenko.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="fonts/LainyDay.woff2" as="font" type="font/woff2" crossorigin>
 <audio id="backgroundAudio" src="audio/Intro-1.mp3" preload="auto"></audio>
 </body>
 </html>
