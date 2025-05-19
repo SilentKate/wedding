@@ -45,85 +45,6 @@ function scrollToTop() {
 }
 
 function resetContent() {
-    if (saveTheDateSection){
-        saveTheDateSection.classList.remove('fade-in-from-left');
-        saveTheDateSection.classList.add('hidden');
-    }
-    
-    if (placeSection){
-        placeSection.classList.remove('fade-in');
-        placeSection.classList.add('hidden');
-    }
-    
-    if (programSection) {
-        const programTitle = programSection.querySelector('#program-title');
-        if (programTitle) {
-            programTitle.classList.remove('fade-in');
-            programTitle.classList.add('hidden');
-        }
-        
-        const programBg = programSection.querySelector('#program-bg');
-        if (programBg) {
-            programBg.classList.remove('fade-in');
-            programBg.classList.add('hidden');
-        }
-
-        const programItems = document.querySelectorAll('.program-item');
-        if (programItems.length) {
-            for (let i = 0; i < programItems.length; i++) {
-                const item = programItems[i];
-                item.classList.remove('fade-in-from-left');
-                item.classList.add('hidden');
-            }
-        }
-    }
-
-    if (dresscodeSection){
-        dresscodeSection.classList.remove('fade-in');
-        dresscodeSection.classList.add('hidden');
-    }
-    
-    if (flowersSection) {
-        flowersSection.classList.remove('fade-in-from-right');
-        flowersSection.classList.add('hidden');
-    }
-    
-    if (giftsSection) {
-        giftsSection.classList.remove('fade-in-from-left');
-        giftsSection.classList.add('hidden');
-    }
-    
-    if (communicationCover) {
-        communicationCover.classList.remove('fade-in');
-        communicationCover.classList.add('hidden');
-    }
-    
-    if (communicationsSection) {
-        communicationsSection.classList.remove('fade-in');
-        communicationsSection.classList.add('hidden');
-
-        const communications = document.getElementById('communications-container');
-        const contacts = document.getElementById('contacts-container');
-
-        communications.classList.remove('fade-in-from-left');
-        communications.classList.add('hidden');
-
-        contacts.classList.remove('fade-in-from-right');
-        contacts.classList.add('hidden');
-    }
-    
-    if (outroSection) {
-        outroSection.classList.remove('fade-in');
-        outroSection.classList.add('hidden');
-
-        const outroBg = document.getElementById('outro-bg');
-        if (outroBg) {
-            outroBg.classList.remove('fade-in');
-            outroBg.classList.add('hidden');
-        }
-    }
-    
-    
     scrollToTop();
     document.body.classList.add('disable-scroll');
     inviteUnlocked = false;
@@ -229,6 +150,7 @@ function setupSaveTheDateSection() {
     const observer = new IntersectionObserver(entries => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
+                saveTheDateSection.classList.remove('hidden');
                 saveTheDateSection.classList.add('fade-in-from-left');
                 observer.unobserve(entry.target);
             }
@@ -242,6 +164,7 @@ function setupPlaceSection() {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
+                placeSection.classList.remove('hidden');
                 placeSection.classList.add('fade-in');
                 observer.unobserve(placeSection);
             }
@@ -256,9 +179,13 @@ function setupProgramSection() {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
+                programSection.classList.remove('hidden');
+                
+                programTitle.classList.remove('hidden');
                 programTitle.classList.add('fade-in');
                 setTimeout(() => {
                     const programBg = document.getElementById('program-bg');
+                    programBg.classList.remove('hidden');
                     programBg.classList.add('fade-in');
                 }, 600);
                 
@@ -268,6 +195,7 @@ function setupProgramSection() {
                         const item = programItems[i];
                         const delay = i * 600;
                         item.style.animationDelay = `${delay}ms`;
+                        // item.classList.remove('hidden');
                         item.classList.add('fade-in-from-left');
                     }
                 }
@@ -352,6 +280,7 @@ function setupFlowersSection() {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
+                flowersSection.classList.remove('hidden');
                 flowersSection.classList.add('fade-in-from-right');
                 observer.unobserve(placeSection);
             }
@@ -366,6 +295,7 @@ function setupGiftsSection() {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
+                giftsSection.classList.remove('hidden');
                 giftsSection.classList.add('fade-in-from-left');
                 observer.unobserve(giftsSection);
             }
@@ -382,8 +312,8 @@ function setupCommunicationsSection() {
                 communicationCover.classList.remove('hidden');
                 communicationCover.classList.add('fade-in');
                 
-                communicationsSection.classList.add('fade-in');
                 communicationsSection.classList.remove('hidden');
+                communicationsSection.classList.add('fade-in');
 
                 setTimeout(() =>                {
                     const communications = document.getElementById('communications-container');
@@ -409,9 +339,11 @@ function setupOutroSection() {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
+                outroSection.classList.remove('hidden');
                 outroSection.classList.add('fade-in');
                 setTimeout(() => {
                     const outroBg = document.getElementById('outro-bg');
+                    outroBg.classList.remove('hidden');
                     outroBg.classList.add('fade-in');
                 }, 200);
                 observer.unobserve(outroSection);
