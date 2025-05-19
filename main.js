@@ -311,25 +311,39 @@ function setupCommunicationsSection() {
                 
                 communicationsSection.classList.remove('hidden');
                 communicationsSection.classList.add('fade-in');
-
-                setTimeout(() =>                {
-                    const communications = document.getElementById('communications-container');
-                    communications.classList.remove('hidden');
-                    communications.classList.add('fade-in-from-right');
-                }, 800)
-                
-                setTimeout(() => {
-                    const contacts = document.getElementById('contacts-container');
-                    contacts.classList.remove('hidden');
-                    contacts.classList.add('fade-in-from-left');
-                }, 1200)
-
                 coverObserver.unobserve(communicationCover);
             }
         });
     }, { threshold: 0.4 });
     coverObserver.observe(communicationCover);
     observers.push(coverObserver);
+
+    const communications = document.getElementById('communications-container');
+    const communicationsObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                communications.classList.remove('hidden');
+                communications.classList.add('fade-in-from-right');
+                coverObserver.unobserve(communications);
+            }
+        });
+    }, { threshold: 0.4 });
+    communicationsObserver.observe(communications);
+    observers.push(communicationsObserver);
+
+    const contacts = document.getElementById('contacts-container');
+    const contactsObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const contacts = document.getElementById('contacts-container');
+                contacts.classList.remove('hidden');
+                contacts.classList.add('fade-in-from-left');
+                coverObserver.unobserve(contacts);
+            }
+        });
+    }, { threshold: 0.4 });
+    contactsObserver.observe(contacts);
+    observers.push(contactsObserver);
 }
 
 function setupOutroSection() {

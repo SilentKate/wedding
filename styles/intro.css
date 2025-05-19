@@ -4,9 +4,7 @@
     left: 0;
     width: 100vw;
     height: 100dvh;
-
     box-sizing: border-box;
-    padding-bottom: 10%;
 }
 
 .intro::after{
