@@ -1,6 +1,7 @@
 .place {
     background-color: white;
     text-align: center;
+    width: 100%;
 }
 
 .place-container {
@@ -15,7 +16,6 @@
     position: relative;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
     box-sizing:border-box;
-    max-width: 100%;
 }
 
 .place-logo {
