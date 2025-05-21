@@ -1,9 +1,12 @@
 ﻿<!DOCTYPE html>
 <html lang="ru" class="hidden disable-scroll" >
+<audio id="backgroundAudio" src="audio/Intro-1.mp3" preload="auto"></audio>
 <head>
     <link rel="preload" href="/images/michel-bg.png" as="image" type="image/png">
     <link rel="preload" href="fonts/DolomanPavljenko.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="fonts/LainyDay.woff2" as="font" type="font/woff2" crossorigin>
+    <!-- Подключаем скрипт -->
+    <script src="main.js"></script>
     <style>
         .hidden { opacity: 0;  pointer-events: none; }
         .visible { opacity: 1; pointer-events: auto; }
@@ -243,9 +246,5 @@
     </div>
 </section>
 
-
-<!-- Подключаем скрипт -->
-<script src="main.js"></script>
-<audio id="backgroundAudio" src="audio/Intro-1.mp3" preload="auto"></audio>
 </body>
 </html>
