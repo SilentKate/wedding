@@ -1,14 +1,3 @@
-/* Свойства */
-.hidden {
-    opacity: 0;
-    pointer-events: none;
-}
-
-.visible {
-    opacity: 1;
-    pointer-events: auto;
-}
-
 /* Свойства анимации */
 /* fade-in-from-left */
 .fade-in-from-left {

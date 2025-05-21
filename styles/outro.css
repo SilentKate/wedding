@@ -13,12 +13,7 @@
 }
 
 .outro-bg {
-    position: absolute;
     width: 100%;
     height: auto;
-    left: 50%;
-    top: 10em;
-    transform: translateX(-50%);
     opacity: 20%;
-    pointer-events: none;
 }

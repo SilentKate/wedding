@@ -38,88 +38,14 @@ function collectContent() {
     backgroundAudio = document.getElementById('backgroundAudio');
 }
 
-function resetContent() {
-    if (saveTheDateSection){
-        saveTheDateSection.classList.remove('fade-in-from-left');
-        saveTheDateSection.classList.add('hidden');
-    }
-    
-    if (placeSection){
-        placeSection.classList.remove('fade-in');
-        placeSection.classList.add('hidden');
-    }
-    
-    if (programSection) {
-        const programTitle = programSection.querySelector('#program-title');
-        if (programTitle) {
-            programTitle.classList.remove('fade-in');
-            programTitle.classList.add('hidden');
-        }
-        
-        const programBg = programSection.querySelector('#program-bg');
-        if (programBg) {
-            programBg.classList.remove('fade-in');
-            programBg.classList.add('hidden');
-        }
-
-        const programItems = document.querySelectorAll('.program-item');
-        if (programItems.length) {
-            for (let i = 0; i < programItems.length; i++) {
-                const item = programItems[i];
-                item.classList.remove('fade-in-from-left');
-                item.classList.add('hidden');
-            }
-        }
-    }
-
-    if (dresscodeSection){
-        dresscodeSection.classList.remove('fade-in');
-        dresscodeSection.classList.add('hidden');
-    }
-    
-    if (flowersSection) {
-        flowersSection.classList.remove('fade-in-from-right');
-        flowersSection.classList.add('hidden');
-    }
-    
-    if (giftsSection) {
-        giftsSection.classList.remove('fade-in-from-left');
-        giftsSection.classList.add('hidden');
-    }
-    
-    if (communicationCover) {
-        communicationCover.classList.remove('fade-in');
-        communicationCover.classList.add('hidden');
-    }
-    
-    if (communicationsSection) {
-        communicationsSection.classList.remove('fade-in');
-        communicationsSection.classList.add('hidden');
-
-        const communications = document.getElementById('communications-container');
-        const contacts = document.getElementById('contacts-container');
-
-        communications.classList.remove('fade-in-from-left');
-        communications.classList.add('hidden');
-
-        contacts.classList.remove('fade-in-from-right');
-        contacts.classList.add('hidden');
-    }
-    
-    if (outroSection) {
-        outroSection.classList.remove('fade-in');
-        outroSection.classList.add('hidden');
-
-        const outroBg = document.getElementById('outro-bg');
-        if (outroBg) {
-            outroBg.classList.remove('fade-in');
-            outroBg.classList.add('hidden');
-        }
-    }
-
+function scrollToTop() {
     document.documentElement.scrollTop = 0;
     document.body.scrollTop = 0;
     window.scrollTo(0, 0);
+}
+
+function resetContent() {
+    scrollToTop();
     document.body.classList.add('disable-scroll');
     inviteUnlocked = false;
 }
@@ -183,6 +109,7 @@ function unlockInvite(){
     // debug
     
     playBackgroundAudio();
+    scrollToTop();
     
     setTimeout(() => {
         inviteTapTarget.classList.remove('initial');
@@ -197,8 +124,8 @@ function unlockInvite(){
         invite.classList.remove("fade-out");
         invite.classList.add("hidden");
 
-        document.body.classList.remove('disable-scroll');
-        document.body.classList.add('enable-scroll');
+        document.documentElement.classList.remove('disable-scroll');
+        document.documentElement.classList.add('enable-scroll');
     }, 5000);
 }
 
@@ -223,6 +150,7 @@ function setupSaveTheDateSection() {
     const observer = new IntersectionObserver(entries => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
+                saveTheDateSection.classList.remove('hidden');
                 saveTheDateSection.classList.add('fade-in-from-left');
                 observer.unobserve(entry.target);
             }
@@ -236,6 +164,7 @@ function setupPlaceSection() {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
+                placeSection.classList.remove('hidden');
                 placeSection.classList.add('fade-in');
                 observer.unobserve(placeSection);
             }
@@ -246,13 +175,15 @@ function setupPlaceSection() {
 }
 
 function setupProgramSection() {
-    const programTitle = document.getElementById('program-title');
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                programTitle.classList.add('fade-in');
+                programSection.classList.remove('hidden');
+                programSection.classList.add('fade-in');
+                
                 setTimeout(() => {
-                    const programBg = document.getElementById('program-bg');
+                    const programBg = document.getElementById('program-bg-container');
+                    programBg.classList.remove('hidden');
                     programBg.classList.add('fade-in');
                 }, 600);
                 
@@ -265,12 +196,11 @@ function setupProgramSection() {
                         item.classList.add('fade-in-from-left');
                     }
                 }
-                
-                observer.unobserve(programTitle);
+                observer.unobserve(programSection);
             }
         });
     }, { threshold: 0.4 });
-    observer.observe(programTitle);
+    observer.observe(programSection);
     observers.push(observer);
 }
 
@@ -346,11 +276,12 @@ function setupFlowersSection() {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
+                flowersSection.classList.remove('hidden');
                 flowersSection.classList.add('fade-in-from-right');
                 observer.unobserve(placeSection);
             }
         });
-    }, { threshold: 0.4 });
+    }, { threshold: 0.6 });
     observer.observe(flowersSection);
     observers.push(observer);
 }
@@ -360,11 +291,12 @@ function setupGiftsSection() {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
+                giftsSection.classList.remove('hidden');
                 giftsSection.classList.add('fade-in-from-left');
                 observer.unobserve(giftsSection);
             }
         });
-    }, { threshold: 0.4 });
+    }, { threshold: 0.6 });
     observer.observe(giftsSection);
     observers.push(observer);
 }
@@ -376,36 +308,52 @@ function setupCommunicationsSection() {
                 communicationCover.classList.remove('hidden');
                 communicationCover.classList.add('fade-in');
                 
-                communicationsSection.classList.add('fade-in');
                 communicationsSection.classList.remove('hidden');
-
-                setTimeout(() =>                {
-                    const communications = document.getElementById('communications-container');
-                    communications.classList.remove('hidden');
-                    communications.classList.add('fade-in-from-right');
-                }, 1200)
-                
-                setTimeout(() => {
-                    const contacts = document.getElementById('contacts-container');
-                    contacts.classList.remove('hidden');
-                    contacts.classList.add('fade-in-from-left');
-                }, 2000)
-
+                communicationsSection.classList.add('fade-in');
                 coverObserver.unobserve(communicationCover);
             }
         });
     }, { threshold: 0.4 });
     coverObserver.observe(communicationCover);
     observers.push(coverObserver);
+
+    const communications = document.getElementById('communications-container');
+    const communicationsObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                communications.classList.remove('hidden');
+                communications.classList.add('fade-in-from-right');
+                coverObserver.unobserve(communications);
+            }
+        });
+    }, { threshold: 0.4 });
+    communicationsObserver.observe(communications);
+    observers.push(communicationsObserver);
+
+    const contacts = document.getElementById('contacts-container');
+    const contactsObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const contacts = document.getElementById('contacts-container');
+                contacts.classList.remove('hidden');
+                contacts.classList.add('fade-in-from-left');
+                coverObserver.unobserve(contacts);
+            }
+        });
+    }, { threshold: 0.4 });
+    contactsObserver.observe(contacts);
+    observers.push(contactsObserver);
 }
 
 function setupOutroSection() {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
+                outroSection.classList.remove('hidden');
                 outroSection.classList.add('fade-in');
                 setTimeout(() => {
                     const outroBg = document.getElementById('outro-bg');
+                    outroBg.classList.remove('hidden');
                     outroBg.classList.add('fade-in');
                 }, 200);
                 observer.unobserve(outroSection);

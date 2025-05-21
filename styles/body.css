@@ -1,6 +1,5 @@
 html {
     background-color: #2d2d2d;
-    
     padding: 0;
 }
 
@@ -12,21 +11,13 @@ body {
     align-items: center;
     flex-direction: column;
     min-height:calc(var(--vh) * 100);
-    height:auto;
+    height: auto;
     max-width: 640px;
     margin-right: auto;
     margin-left: auto;
     user-select:none;
     gap: 4rem;
     text-align: center;
-}
-
-body.enable-scroll {
-    overflow: auto;
-}
-
-body.disable-scroll {
-    overflow: hidden;
 }
 
 .body-bg {
