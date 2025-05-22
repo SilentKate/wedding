@@ -6,6 +6,8 @@
     <link rel="preload" href="images/michel-bg.png" as="image" type="image/png">
     <link rel="preload" href="fonts/DolomanPavljenko.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="fonts/LainyDay.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="fonts/LainyDay.woff" as="font" type="font/woff" crossorigin>
+    <link rel="preload" href="fonts/LainyDay.ttf" as="font" type="font/ttf" crossorigin>
     <!-- Подключаем скрипт -->
     <script src="main.js"></script>
     <style>
@@ -44,7 +46,7 @@
 <main id="invite" class="main">
     <div class = "invite">
         <div class = "invite-cover">
-            <img class="invite-cover-bg" src="images/michel-bg.png" alt="">
+            <img class="invite-cover-bg" src="images/michel-bg.png" fetchpriority="high" loading="eager" alt="">
         </div>
         <div class = "invite-tap-content">
             <h1>Приглашение на свадьбу</h1>
