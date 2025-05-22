@@ -41,9 +41,8 @@
 </head>
 
 <body>
-<!-- intro -->
-<main class="main">
-    <div id="invite" class = "invite">
+<main id="invite" class="main">
+    <div class = "invite">
         <div class = "invite-cover">
             <img class="invite-cover-bg" src="images/michel-bg.png" alt="">
         </div>
@@ -59,192 +58,195 @@
         </div>
     </div>
 </main>
+<!-- intro -->
 
-<section id="intro" class="intro hidden">
-    <img src="images/cover.png" alt="Наша свадьба" class="intro-cover">
-    <div class="intro-text-container">
-        <h1 class="intro-subtitle">Свадебное торжество</h1>
-        <h2 class="intro-names">Кирилла и Екатерины</h2>
-        <div class="vertical_scroll-indicator">
-            <div class="vertical_scroll-track"></div>
-            <div class="vertical_scroll-line"></div>
+<div class="main-scrollable">
+    <section id="intro" class="intro hidden">
+        <img src="images/cover.png" alt="Наша свадьба" class="intro-cover">
+        <div class="intro-text-container">
+            <h1 class="intro-subtitle">Свадебное торжество</h1>
+            <h2 class="intro-names">Кирилла и Екатерины</h2>
+            <div class="vertical_scroll-indicator">
+                <div class="vertical_scroll-track"></div>
+                <div class="vertical_scroll-line"></div>
+            </div>
+            <h6 class="hint">Листайте вниз</h6>
         </div>
-        <h6 class="hint">Листайте вниз</h6>
-    </div>
-</section>
-
-<!-- save-the-date -->
-<section id="save-the-date" class="save-the-date hidden">
-        <p class="save-the-date__subtitle">Мы приглашаем вас</p>
-        <h4 class="save-the-date__date">18 августа 2025</h4>
-        <p class="save-the-date__note">отпраздновать нашу свадьбу</p>
-</section>
-
-<!-- place -->
-<section id="place" class="place hidden">
-    <div class="place-container">
-        <h3 class="place-title">Локация</h3>
-        <h4 class="place-name">Кафе</h4>
-        <img src="images/michel_logo.png" alt="place logo" class="place-logo">
-        <p class="place-address">Москва, ул. Красная Пресня, 13</p>
-        <h6><a class="body-button" href="https://yandex.com.tr/harita/-/CHa5rTlY" target="_blank">Построить маршрут</a></h6>
-    </div>
-</section>
-
-<!-- program -->
-<section id="program" class="program hidden">
-    <h3 id="program-title" class="program-title">Программа события</h3>
-    <div id="program-bg-container" class = "program-bg-container hidden">
-        <img src="images/cake.png" class = "program-bg" alt="">
-    </div>
+    </section>
     
-    <ul class="program-list">
-        <li class="program-item hidden">
-            <div class="program-content">
-                <h4>15:00 Фуршет</h4>
-                <p class="program-desc">Гости соберутся в кафе Мишель, где их встретит команда организаторов.</p>
-            </div>
-        </li>
-
-        <li class="program-item hidden">
-            <div class="program-content">
-                <h4>16:00 Церемония</h4>
-                <p class="program-desc">Мы обменяемся клятвами и кольцами.</p>
-            </div>
-        </li>
-        
-        <li class="program-item hidden">
-            <div class="program-content">
-                <h4>17:00 Праздничный ужин</h4>
-                <p class="program-desc">Будем наслаждаться вкусной едой и общением друг с другом!</p>
-            </div>
-        </li>
-        
-        <li class="program-item hidden">
-            <div class="program-content">
-                <h4>21:00 Свадебный торт</h4>
-                <p class="program-desc">Подкрепим силы перед танцами и весельем!</p>
-            </div>
-        </li>
-        
-        <li class="program-item hidden">
-            <div class="program-content">
-                <h4>23:00 Финал</h4>
-                <p class="program-desc">Надеемся, что вы с удовольствием проведёте этот день с нами!</p>
-            </div>
-        </li>
-
-    </ul>
-</section>
-
-<!-- Дресс код -->
-<section id="dresscode" class="dresscode hidden">
-    <div class="dc-card">
-        <header class="dc-fixed">
-            <h3 class="dc-title-big">Дресс код</h3>
-            <p class="dc-sub">Пожалуйста, поддержите стилистику<br>нашего события</p>
-            <div class="dc-hint-wrap">
-                <div class="horizontal_scroll-indicator">
-                    <div class="horizontal_scroll-track"></div>
-                    <div class="horizontal_scroll-line"></div>
-                </div>
-                <h6 class="hint">Листайте вбок</h6>
-            </div>
-        </header>
-
-        <div id="dc-slider" class="dc-slider">
-            <article class="dc-slide current">
-                <h4 class="dc-gender">Женский</h4>
-                <p class="dc-text">
-                    Однотонные наряды<br>
-                    в чёрных, бежевых или серых оттенках
-                </p>
-                <div class="dc-palette">
-                    <span style="--c:rgba(0,0,0,.85);"></span>
-                    <span style="--c:#555;"></span>
-                    <span style="--c:#bbb;"></span>
-                    <span style="--c:#d8c9b5;"></span>
-                    <span style="--c:#cebca7;"></span>
-                    <span style="--c:#c9b29d;"></span>
-                </div>
-                <p class="dc-note">Просим уступить белый цвет для платья невесты. <br> Спасибо!</p>
-                <img class="dc-reference" src="images/female-dc.png" alt="">
-            </article>
-
-            <article class="dc-slide">
-                <h4 class="dc-gender">Мужской</h4>
-                <p class="dc-text">
-                    Костюмы с пиджаком или без<br>
-                    в чёрных или серых оттенках
-                </p>
-
-                <div class="dc-palette">
-                    <span style="--c:rgba(0,0,0,.85);"></span>
-                    <span style="--c:#555;"></span>
-                    <span style="--c:#666;"></span>
-                    <span style="--c:#999;"></span>
-                    <span style="--c:#ddd;"></span>
-                    <span style="--c:#fff;"></span>
-                </div>
-                <p class="dc-note">Просим уступить смокинг для жениха. <br> Спасибо!</p>
-                <img class="dc-reference" src="images/male-dc.png" alt="">
-            </article>
-        </div>
-    </div>
-</section>
-
-<!-- flowers -->
-<section id="flowers" class="flowers hidden">
-    <div class="flowers-container">
-        <h3>Цветы</h3>
-        <p>Если вы очень хотите подарить цветы - <br> 
-            мы больше всего любим белые букеты рислинга, Нового Света и Грузии.</p>
-    </div>
-</section>
-
-<!-- gifts -->
-<section id="gifts" class="gifts hidden">
-    <div class="gifts-container">
-        <h3>Подарки</h3>
-        <p>Мы очень ценим вашу заботу, внимание и будем рады любому подарку! <br>
-            Не важно, в какой конверт вы его упакуете :) </p>
-    </div>
-</section>
-
-<img id="communications-cover" class="body-bg hidden" src="images/cover.png" alt="">
-
-<section id="communications" class="communications hidden">
-    <div id = "communications-container" class="communications-container hidden">
-        <h3>Общение</h3>
-        <p>Просим вступить в телеграмм-чат нашего праздника, <br>
-            чтобы делиться впечатлениями, пожеланиями, фотографиями и видео до, в день и после свадьбы 
-        </p>
-        <h6><a class="body-button" href="https://t.me/+I2cO3YUdkDU2NTE6" target="_blank">Вступить в чат</a></h6>
-    </div>
+    <!-- save-the-date -->
+    <section id="save-the-date" class="save-the-date hidden">
+            <p class="save-the-date__subtitle">Мы приглашаем вас</p>
+            <h4 class="save-the-date__date">18 августа 2025</h4>
+            <p class="save-the-date__note">отпраздновать нашу свадьбу</p>
+    </section>
     
-    <div id = "contacts-container" class="contacts-container hidden">
-        <h3>Контакты</h3>
-        <p>Если у вас возникнут вопросы в день свадьбы, <br>
-            вы можете обратиться к нашему организатору Марии 
-        </p>
-        <div class="buttons-container">
-            <h6><a class="body-icon-button" href="tel:+79062322255" target="_blank">
-                <img class="body-bg" src="images/icons/phone.png" alt="">
-            </a>
-            </h6>
-            <h6><a class="body-icon-button" href="https://t.me/MBelobrova" target="_blank">
-            <img class="body-bg" src="images/icons/tg.png" alt="">
-        </a></h6>
+    <!-- place -->
+    <section id="place" class="place hidden">
+        <div class="place-container">
+            <h3 class="place-title">Локация</h3>
+            <h4 class="place-name">Кафе</h4>
+            <img src="images/michel_logo.png" alt="place logo" class="place-logo">
+            <p class="place-address">Москва, ул. Красная Пресня, 13</p>
+            <h6><a class="body-button" href="https://yandex.com.tr/harita/-/CHa5rTlY" target="_blank">Построить маршрут</a></h6>
         </div>
-    </div>
-</section>
-
-<section id="outro" class="outro hidden">
-    <h2 style="color: #2d2d2d; ">Ждём вас с нетерпением на нашем торжестве!</h2>
-    <div id="outro-bg" class = "outro-bg hidden">
-        <img class = "outro-bg" src="images/just_married.png" alt="">
-    </div>
-</section>
+    </section>
+    
+    <!-- program -->
+    <section id="program" class="program hidden">
+        <h3 id="program-title" class="program-title">Программа события</h3>
+        <div id="program-bg-container" class = "program-bg-container hidden">
+            <img src="images/cake.png" class = "program-bg" alt="">
+        </div>
+        
+        <ul class="program-list">
+            <li class="program-item hidden">
+                <div class="program-content">
+                    <h4>15:00 Фуршет</h4>
+                    <p class="program-desc">Гости соберутся в кафе Мишель, где их встретит команда организаторов.</p>
+                </div>
+            </li>
+    
+            <li class="program-item hidden">
+                <div class="program-content">
+                    <h4>16:00 Церемония</h4>
+                    <p class="program-desc">Мы обменяемся клятвами и кольцами.</p>
+                </div>
+            </li>
+            
+            <li class="program-item hidden">
+                <div class="program-content">
+                    <h4>17:00 Праздничный ужин</h4>
+                    <p class="program-desc">Будем наслаждаться вкусной едой и общением друг с другом!</p>
+                </div>
+            </li>
+            
+            <li class="program-item hidden">
+                <div class="program-content">
+                    <h4>21:00 Свадебный торт</h4>
+                    <p class="program-desc">Подкрепим силы перед танцами и весельем!</p>
+                </div>
+            </li>
+            
+            <li class="program-item hidden">
+                <div class="program-content">
+                    <h4>23:00 Финал</h4>
+                    <p class="program-desc">Надеемся, что вы с удовольствием проведёте этот день с нами!</p>
+                </div>
+            </li>
+    
+        </ul>
+    </section>
+    
+    <!-- Дресс код -->
+    <section id="dresscode" class="dresscode hidden">
+        <div class="dc-card">
+            <header class="dc-fixed">
+                <h3 class="dc-title-big">Дресс код</h3>
+                <p class="dc-sub">Пожалуйста, поддержите стилистику<br>нашего события</p>
+                <div class="dc-hint-wrap">
+                    <div class="horizontal_scroll-indicator">
+                        <div class="horizontal_scroll-track"></div>
+                        <div class="horizontal_scroll-line"></div>
+                    </div>
+                    <h6 class="hint">Листайте вбок</h6>
+                </div>
+            </header>
+    
+            <div id="dc-slider" class="dc-slider">
+                <article class="dc-slide current">
+                    <h4 class="dc-gender">Женский</h4>
+                    <p class="dc-text">
+                        Однотонные наряды<br>
+                        в чёрных, бежевых или серых оттенках
+                    </p>
+                    <div class="dc-palette">
+                        <span style="--c:rgba(0,0,0,.85);"></span>
+                        <span style="--c:#555;"></span>
+                        <span style="--c:#bbb;"></span>
+                        <span style="--c:#d8c9b5;"></span>
+                        <span style="--c:#cebca7;"></span>
+                        <span style="--c:#c9b29d;"></span>
+                    </div>
+                    <p class="dc-note">Просим уступить белый цвет для платья невесты. <br> Спасибо!</p>
+                    <img class="dc-reference" src="images/female-dc.png" alt="">
+                </article>
+    
+                <article class="dc-slide">
+                    <h4 class="dc-gender">Мужской</h4>
+                    <p class="dc-text">
+                        Костюмы с пиджаком или без<br>
+                        в чёрных или серых оттенках
+                    </p>
+    
+                    <div class="dc-palette">
+                        <span style="--c:rgba(0,0,0,.85);"></span>
+                        <span style="--c:#555;"></span>
+                        <span style="--c:#666;"></span>
+                        <span style="--c:#999;"></span>
+                        <span style="--c:#ddd;"></span>
+                        <span style="--c:#fff;"></span>
+                    </div>
+                    <p class="dc-note">Просим уступить смокинг для жениха. <br> Спасибо!</p>
+                    <img class="dc-reference" src="images/male-dc.png" alt="">
+                </article>
+            </div>
+        </div>
+    </section>
+    
+    <!-- flowers -->
+    <section id="flowers" class="flowers hidden">
+        <div class="flowers-container">
+            <h3>Цветы</h3>
+            <p>Если вы очень хотите подарить цветы - <br> 
+                мы больше всего любим белые букеты рислинга, Нового Света и Грузии.</p>
+        </div>
+    </section>
+    
+    <!-- gifts -->
+    <section id="gifts" class="gifts hidden">
+        <div class="gifts-container">
+            <h3>Подарки</h3>
+            <p>Мы очень ценим вашу заботу, внимание и будем рады любому подарку! <br>
+                Не важно, в какой конверт вы его упакуете :) </p>
+        </div>
+    </section>
+    
+    <img id="communications-cover" class="body-bg hidden" src="images/cover.png" alt="">
+    
+    <section id="communications" class="communications hidden">
+        <div id = "communications-container" class="communications-container hidden">
+            <h3>Общение</h3>
+            <p>Просим вступить в телеграмм-чат нашего праздника, <br>
+                чтобы делиться впечатлениями, пожеланиями, фотографиями и видео до, в день и после свадьбы 
+            </p>
+            <h6><a class="body-button" href="https://t.me/+I2cO3YUdkDU2NTE6" target="_blank">Вступить в чат</a></h6>
+        </div>
+        
+        <div id = "contacts-container" class="contacts-container hidden">
+            <h3>Контакты</h3>
+            <p>Если у вас возникнут вопросы в день свадьбы, <br>
+                вы можете обратиться к нашему организатору Марии 
+            </p>
+            <div class="buttons-container">
+                <h6><a class="body-icon-button" href="tel:+79062322255" target="_blank">
+                    <img class="body-bg" src="images/icons/phone.png" alt="">
+                </a>
+                </h6>
+                <h6><a class="body-icon-button" href="https://t.me/MBelobrova" target="_blank">
+                <img class="body-bg" src="images/icons/tg.png" alt="">
+            </a></h6>
+            </div>
+        </div>
+    </section>
+    
+    <section id="outro" class="outro hidden">
+        <h2 style="color: #2d2d2d; ">Ждём вас с нетерпением на нашем торжестве!</h2>
+        <div id="outro-bg" class = "outro-bg hidden">
+            <img class = "outro-bg" src="images/just_married.png" alt="">
+        </div>
+    </section>
+</div>>
 
 </body>
 </html>

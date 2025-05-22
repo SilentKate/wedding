@@ -5,7 +5,8 @@ html {
 
 body {
     padding: 0;
-    max-width: 640px;
+    width: 100vw;
+    width: 100dvw;
     
     user-select:none;
     text-align: center;

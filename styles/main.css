@@ -13,4 +13,22 @@
     z-index: 6;
 }
 
+.main-scrollable {
+    max-width: 640px;
+    width: 100%;
+    height: auto;
+
+    padding: 0;
+    margin: 0;
+    margin-right: auto;
+    margin-left: auto;
+    user-select: none;
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 4rem;
+    text-align: center;
+}
+
 

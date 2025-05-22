@@ -199,7 +199,7 @@ function setupProgramSection() {
                 observer.unobserve(programSection);
             }
         });
-    }, { threshold: 0.4 });
+    }, { threshold: 0.2 });
     observer.observe(programSection);
     observers.push(observer);
 }
