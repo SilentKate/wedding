@@ -5,19 +5,19 @@ html {
 
 body {
     padding: 0;
-    margin: 0;
+    max-width: 640px;
+    
+    user-select:none;
+    text-align: center;
     color: white;
+    
     display: flex;
     align-items: center;
     flex-direction: column;
-    min-height:calc(var(--vh) * 100);
-    height: auto;
-    max-width: 640px;
+    margin: 0;
     margin-right: auto;
     margin-left: auto;
-    user-select:none;
     gap: 4rem;
-    text-align: center;
 }
 
 .body-bg {
