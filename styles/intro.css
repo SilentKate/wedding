@@ -2,8 +2,10 @@
     position: absolute;
     top: 0;
     left: 0;
-    width: 100dvw;
-    height: 100dvh;
+
+    width: 100vw;
+    height: 100vh;
+
     box-sizing: border-box;
 }
 
@@ -31,15 +33,15 @@
 }
 
 .intro-text-container {
-    position:relative;
-    z-index: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+
     width: 100%;
-    height: 100%;
+    height: 100dvh;
     
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-end;
-
-    padding-bottom: 15vh;
 }
