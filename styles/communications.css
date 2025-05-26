@@ -20,6 +20,20 @@
     max-width: 100%;
 }
 
+/*.communications::after{*/
+/*    content: '';*/
+/*    position: absolute;*/
+/*    inset: 0;*/
+/*    pointer-events:none;*/
+/*    background: linear-gradient(*/
+/*            180deg,*/
+/*            rgba(14, 14, 14, 0.8) 0%,*/
+/*            rgba(0,0,0,.3) 20%,*/
+/*            rgba(0,0,0,0) 40%*/
+/*    );*/
+/*    z-index: -1;*/
+/*}*/
+
 .communications-container {
     display: flex;
     flex-direction: column;
@@ -53,6 +67,26 @@
     width: 100%;
     max-width: 100%;
 }
+
+.communications-cover {
+    max-width: 100%;
+    height: auto;
+    pointer-events: auto;
+}
+
+/*.communications-cover::after{*/
+/*    content: '';*/
+/*    position: absolute;*/
+/*    inset: 0;*/
+/*    pointer-events:none;*/
+/*    background: linear-gradient(*/
+/*            0deg,*/
+/*            rgba(14, 14, 14, 0.8) 0%,*/
+/*            rgba(0,0,0,.3) 20%,*/
+/*            rgba(0,0,0,0) 40%*/
+/*    );*/
+/*    z-index: 5;*/
+/*}*/
 
 #communications {
     margin-top:-4rem;
