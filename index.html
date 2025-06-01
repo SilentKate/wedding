@@ -1,6 +1,5 @@
 ﻿<!DOCTYPE html>
 <html lang="ru" class="hidden disable-scroll" >
-<audio id="backgroundAudio" src="audio/Intro-1.mp3" preload="auto"></audio>
 <head>
     <link rel="icon" href="data:,">
     <link rel="preload" href="images/michel-bg.png" as="image" type="image/png">
@@ -43,6 +42,11 @@
 </head>
 
 <body>
+<audio id="backgroundAudio" preload="auto" loop>
+    <source src="audio/Intro-1.mp3" type="audio/mpeg">
+    <source src="audio/Intro-1.ogg" type="audio/ogg">
+</audio>
+
 <main id="invite" class="main">
     <div class = "invite">
         <div class = "invite-cover">
